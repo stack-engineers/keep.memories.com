@@ -34,9 +34,11 @@ function UploadPhotoForm() {
         <select name="categories" id="categories">
           <option value={String("people")}>people</option>
           <option value={String("nature")}>nature</option>
+          <option value={String("dark")}>dark</option>
           <option value={String("technology")}>technology</option>
           <option value={String("animals")}>animals</option>
           <option value={String("food")}>food</option>
+          <option value={String("illustrations")}>illustrations</option>
           <option value={String("sports")}>sports</option>
         </select>
         <br />

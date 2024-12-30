@@ -13,7 +13,7 @@ interface Resource {
   upload_date: string | number;
 }
 
-function Food() {
+function Illustrations() {
   const [resources, setResources] = useState<Resource[]>([]);
 
   async function FetchResources() {
@@ -27,7 +27,7 @@ function Food() {
       const response = await request.data;
       setResources(
         response.filter((index: Resource) => {
-          return index.category === "food";
+          return index.category === "illustrations";
         })
       );
     } catch (error) {
@@ -44,8 +44,8 @@ function Food() {
       <>
         <NavigationBarComponent />
         <br />
-        <section className="food">
-          <h1>Beautiful photos from foods</h1>
+        <section className="illustrations">
+          <h1>Beautiful photos from illustrations</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
             optio rem quidem fugiat voluptatum facere deleniti commodi! Debitis
@@ -115,4 +115,4 @@ function Food() {
   }
 }
 
-export default Food;
+export default Illustrations;

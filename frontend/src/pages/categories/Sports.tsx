@@ -1,6 +1,5 @@
 import NavigationBarComponent from "../../components/Navigation.Bar.Component";
 import { useState, useEffect } from "react";
-import { FaDownload, FaHeart } from "react-icons/fa";
 import axios from "axios";
 import PhotoViewComponent from "../../components/Photo.View.Component";
 
@@ -69,7 +68,7 @@ function Sports() {
     }
   };
 
-  return (
+  return resources.length > 0 ? (
     <>
       <NavigationBarComponent />
       <br />
@@ -94,18 +93,7 @@ function Sports() {
                 onClick={handleImageClick}
               />
               <div className="photo-details">
-                <section>
-                  <aside>
-                    <a href={resource.resource_url} download>
-                      <button type="button">
-                        <FaDownload />
-                      </button>
-                    </a>
-                    <button type="button">
-                      <FaHeart />
-                    </button>
-                  </aside>
-                </section>
+                <section></section>
               </div>
             </article>
           ))}
@@ -113,6 +101,8 @@ function Sports() {
         <PhotoViewComponent />
       </section>
     </>
+  ) : (
+    <img src="/3363936.webp" alt="" />
   );
 }
 

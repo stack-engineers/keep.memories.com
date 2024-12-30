@@ -1,6 +1,5 @@
 import NavigationBarComponent from "../../components/Navigation.Bar.Component";
 import { useState, useEffect } from "react";
-import { FaDownload, FaHeart } from "react-icons/fa";
 import axios from "axios";
 import PhotoViewComponent from "../../components/Photo.View.Component";
 
@@ -69,7 +68,7 @@ function Nature() {
     }
   };
 
-  return (
+  return resources.length > 0 ? (
     <>
       <NavigationBarComponent />
       <br />
@@ -94,18 +93,7 @@ function Nature() {
                 onClick={handleImageClick}
               />
               <div className="photo-details">
-                <section>
-                  <aside>
-                    <a href={resource.resource_url} download>
-                      <button type="button">
-                        <FaDownload key={`download-${resource.id}`} />
-                      </button>
-                    </a>
-                    <button type="button">
-                      <FaHeart key={`heart-${resource.id}`} />
-                    </button>
-                  </aside>
-                </section>
+                <section></section>
               </div>
             </article>
           ))}
@@ -113,6 +101,8 @@ function Nature() {
         <PhotoViewComponent />
       </section>
     </>
+  ) : (
+    <img src="/3363936.webp" alt="" />
   );
 }
 

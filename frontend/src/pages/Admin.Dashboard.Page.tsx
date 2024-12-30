@@ -114,6 +114,10 @@ function AdminDashboardPage() {
             optio rem quidem fugiat voluptatum facere deleniti commodi! Debitis
             nesciunt eveniet eius voluptatem illo illum quam.
           </p>
+          <p>
+            {resources.length &&
+              `Found ${resources.length + 1} photos in your collection`}
+          </p>
           <br />
           <div className={String("collection")}>
             {adminCollection.length > 0 ? (

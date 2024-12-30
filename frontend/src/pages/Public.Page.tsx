@@ -70,11 +70,25 @@ function PublicPage() {
     },
     {
       id: String(uuid()),
+      title: "click to view dark categories of photos",
+      bg_photo: <img src="/dark.avif" alt="" />,
+      href: "/photos/categories/dark-photos",
+      value: "Sports",
+    },
+    {
+      id: String(uuid()),
       title: "click to view sports categories of photos",
       bg_photo: (
         <img src="/female-rugby-player-holding-ball_23-2148793344.jpg" alt="" />
       ),
       href: "/photos/categories/sports",
+      value: "Sports",
+    },
+    {
+      id: String(uuid()),
+      title: "click to view illustrations categories of photos",
+      bg_photo: <img src="/illustrations.jpg" alt="" />,
+      href: "/photos/categories/illustrations",
       value: "Sports",
     },
   ]);
@@ -111,7 +125,6 @@ function PublicPage() {
           ))}
         </section>
         <LogoutAlertBox />
-        <br />
         <br />
         <br />
         {admin ? (
