@@ -10,8 +10,8 @@ module.exports = async function (request, response, next) {
         const token = authorizationHeaders.split(" ")[1];
         const tokenUser = jwt.verify(token, process.env.REFRESH_TOKEN_SECRETE_KEY);
         const FoundUser = await modelConnection.query(`
-                SELECT id FROM users WHERE id = ${JSON.stringify(tokenUser.id)}
-            `);
+            SELECT id FROM users WHERE id = ?
+        `, [tokenUser.id]);
 
         if (jwt.decode(token) === null) {
             response.status(Number(parseInt(403)))

@@ -7,7 +7,7 @@ router.route("/").get((request, response) => {
     response.statusCode = Number(parseInt(200));
 
     response.status(Number(parseInt(200)))
-            .sendFile(require("node:path").join(__dirname, "../../view/index.html"))
+        .sendFile(require("node:path").join(__dirname, "../../view/index.html"))
 });
 
 router.use("/login", require("../auth/login.auth.controller"));
