@@ -17,7 +17,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--primary-font-family);
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
     flex-direction: column;
 }
 
@@ -118,7 +121,10 @@ nav > div :is(h1) > a {
     text-decoration-color: none;
     color: hsl(0, 0%, 30%);
     font-size: 1.1em;
+    font-family: "Playwrite DK Loopet Guides", serif;
     font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
 }
 nav > div :is(ul) {
     display: flex;
@@ -208,17 +214,20 @@ main > section[class="photos-categories"] {
     flex-direction: row;
     flex-flow: row wrap;
     gap: .1em;
-    /* border: 1px solid red; */
 }
 main > section[class="photos-categories"] :is(.Food) {
-    width: 30em;
+    width: 25em;
 }
 main > section[class="photos-categories"] :is(.Nature) {
     width: 15em;
 }
 main > section[class="photos-categories"] :is(.Animals) {
-    width: 17em;
+    width: 25em;
 }
+main > section[class="photos-categories"] :is(.dark-photos) {
+    width: 35em;
+}
+
 main > section[class="photos-categories"] > a {
     height: 23em;
     width: min(90%, 30em);
@@ -270,7 +279,8 @@ article[class="photo_resource"] {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    /* flex-grow: 1 */
+    /* border: 1px solid red; */
+    flex-grow: 1
 }
 article[class="photo_resource"] > img {
     height: 19em;
@@ -433,6 +443,10 @@ footer > div {
 footer :is(h1) {
     font-size: 1.4em;
     font-weight: bold;
+    font-family: "Playwrite DK Loopet Guides", serif;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
 }
 footer :is(h1) > a {
     text-decoration-color: none;
