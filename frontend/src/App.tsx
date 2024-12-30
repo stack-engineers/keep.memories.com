@@ -17,6 +17,8 @@ import ContactPage from "./pages/Contact.Us.Page";
 import FilterBar from "./pages/Filter.Bar.Page";
 import CodeValidationForm from "./components/Email.Verification.Code.Component";
 import BlankPage from "./pages/Blank.Verification.Page";
+import Illustrations from "./pages/categories/Illustrations";
+import DarkPhotos from "./pages/categories/Dark.Photos";
 
 function App() {
   const context: string | null = React.useContext(adminContext) as
@@ -47,6 +49,14 @@ function App() {
       <Route path="/photos/categories/food" element={<Food />}></Route>
       <Route path="/photos/categories/nature" element={<Nature />}></Route>
       <Route path="/photos/categories/animals" element={<Animals />}></Route>
+      <Route
+        path="/photos/categories/illustrations"
+        element={<Illustrations />}
+      ></Route>
+      <Route
+        path="/photos/categories/dark-photos"
+        element={<DarkPhotos />}
+      ></Route>
       <Route
         path="/photos/categories/technology"
         element={<Technology />}
