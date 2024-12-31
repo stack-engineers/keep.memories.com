@@ -359,6 +359,7 @@ section[class="about-us-page"] > article {
 section[class="about-us-page"] > article :is(img) {
   height: 22em;
   width: min(100%, 30em);
+  flex-grow: 1;
 }
 section[class="about-us-page"] > article :is(div) {
   min-height: 55vh;
@@ -409,6 +410,7 @@ section[class="contact-us-page"] > article {
 section[class="contact-us-page"] > article :is(img) {
   height: 25em;
   width: min(100%, 30em);
+  flex-grow: 1;
 }
 section[class="contact-us-page"] > article :is(div) {
   min-height: 55vh;

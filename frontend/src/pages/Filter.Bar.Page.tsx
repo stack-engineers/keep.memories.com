@@ -54,6 +54,8 @@ function FilterBar() {
                 );
               }
             }}
+            placeholder="search photos here..."
+            aria-placeholder="search photos here..."
           />
           <button
             type="button"

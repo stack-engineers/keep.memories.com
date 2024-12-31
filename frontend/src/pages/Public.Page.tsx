@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import FooterComponent from "../components/Footer.Component";
 import LogoutAlertBox from "../components/Logout.Alert.Box.Component";
 import adminContext from "../context/adminContext";
+import HeaderComponent from "../components/Header.Component";
 
 function PublicPage() {
   const context: string = React.useContext(adminContext) as string;
@@ -101,6 +102,7 @@ function PublicPage() {
   return (
     <>
       <NavigationBarComponent />
+      <HeaderComponent />
       <main className={String("public-page")}>
         <br />
         <br />

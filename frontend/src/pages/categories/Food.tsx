@@ -108,7 +108,13 @@ function Food() {
         </section>
       </>
     ) : (
-      <img src="/3363936.webp" alt="" />
+      <>
+        <NavigationBarComponent />
+        <div className="img-wrapper">
+          <img src="/3363936.webp" alt="" />
+          <p>No photos were found, try reloading the page!</p>
+        </div>
+      </>
     );
   } catch (error) {
     console.error(error);

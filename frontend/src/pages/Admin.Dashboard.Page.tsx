@@ -114,10 +114,11 @@ function AdminDashboardPage() {
             optio rem quidem fugiat voluptatum facere deleniti commodi! Debitis
             nesciunt eveniet eius voluptatem illo illum quam.
           </p>
-          <p>
-            {resources.length &&
-              `Found ${resources.length + 1} photos in your collection`}
-          </p>
+          {resources.length > 0 ? (
+            <p>{`Found ${resources.length + 1} photos in your collection`}</p>
+          ) : (
+            ("" as string)
+          )}
           <br />
           <div className={String("collection")}>
             {adminCollection.length > 0 ? (
@@ -192,19 +193,15 @@ function AdminDashboardPage() {
                 </article>
               ))
             ) : (
-              <div className="warning-div">
-                <img src="/3363936.webp" alt="photo" />
-                {/* <p>There are no photos in your collection!</p> */}
+              <div className="img-wrapper">
+                <img src="/3363936.webp" alt="" />
+                <p>No photos were found, try reloading the page!</p>
               </div>
             )}
             <PhotoViewComponent />
             <LogoutAlertBox />
           </div>
-          <br />
-          <br />
-          <br />
           <UploadPhotoForm />
-          <br />
           <br />
           <button
             type="button"
@@ -220,8 +217,6 @@ function AdminDashboardPage() {
             {<MdOutlineAddPhotoAlternate />}
           </button>
         </section>
-        <br />
-        <br />
         <br />
         <FooterComponent />
       </>

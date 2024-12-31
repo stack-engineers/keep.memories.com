@@ -1,15 +1,17 @@
 .login-section-page {
-  height: 100vh;
+  min-height: 100vh;
   width: min(100%, 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: hsl(216, 100%, 99%);
   gap: 3em;
+  flex-flow: row wrap;
+  /* border: 1px solid red; */
 }
 .login-section-page > div {
   height: 20em;
-  width: min(100%, 25em);
+  width: min(90%, 25em);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -18,7 +20,7 @@
 }
 .login-section-page > form {
   height: 20em;
-  width: min(100%, 30em);
+  width: min(90%, 30em);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -90,17 +92,19 @@
 
 /*  */
 .signup-section-page {
-  height: 100vh;
+  min-height: 100vh;
   width: min(100%, 100%);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: row wrap;
   background-color: hsl(216, 100%, 99%);
   gap: 3em;
+  /* border: 1px solid red; */
 }
 .signup-section-page > div {
   height: 20em;
-  width: min(100%, 25em);
+  width: min(90%, 25em);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -109,7 +113,7 @@
 }
 .signup-section-page > form {
   height: 20em;
-  width: min(100%, 30em);
+  width: min(90%, 30em);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -292,7 +296,7 @@ section[class="admin-dashboard-section-page"] > button {
   font-size: 2em;
 }
 section[class="admin-dashboard-section-page"] > div {
-  min-height: 60vh;
+  min-height: 40vh;
   width: min(90%, 90%);
   display: flex;
   align-items: center;
@@ -300,6 +304,9 @@ section[class="admin-dashboard-section-page"] > div {
   flex-direction: row;
   gap: 0.5em;
   flex-flow: row wrap;
+}
+section[class="admin-dashboard-section-page"] > div > .img-wrapper  {
+  min-height: 30vh;
 }
 section[class="admin-dashboard-section-page"] :is(article) {
   height: 19em;
@@ -543,4 +550,25 @@ section[class="upload-form"] > form :is(div) {
   color: hsl(0, 0%, 100%);
   font-size: 1.1em;
   font-weight: bold;
+}
+
+
+/*  */
+.img-wrapper {
+  min-height: 90vh;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .0em
+}
+.img-wrapper > img {
+  height: 18em;
+  width: min(100%, 20em);
+}
+.img-wrapper > p {
+  font-size: .9em;
+  font-weight: normal;
+  color: hsl(0, 0%, 20%);
 }
