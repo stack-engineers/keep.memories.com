@@ -6,6 +6,8 @@ const server = http.createServer(app);
 const path = require("node:path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const { v4: uuid } = require("uuid");
+console.log(uuid());
 require("dotenv").config();
 // require("dotenv").configDotenv(); // This line is not needed
 const cors = require("cors");

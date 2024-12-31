@@ -6,7 +6,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "robert sims",
   "license": "ISC",
-  "description": ""
+  "description": "keep memories photo gallery",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testgithubrobert/keep.memories.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/testgithubrobert/keep.memories.com/issues"
+  },
+  "homepage": "https://github.com/testgithubrobert/keep.memories.com#readme"
 }
