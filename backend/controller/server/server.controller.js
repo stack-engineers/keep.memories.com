@@ -11,9 +11,6 @@ console.log(uuid());
 require("dotenv").config();
 // require("dotenv").configDotenv(); // This line is not needed
 const cors = require("cors");
-const origins = [
-    "http://localhost:3500"
-]
 
 app.use(express.json());
 app.use(cookieParser());
@@ -37,7 +34,7 @@ app.set("port", Number(parseInt(3500)));
 app.use(bodyParser.urlencoded({ extended: Boolean(false) }));
 app.use(bodyParser.json());
 app.use(cors({
-    origin: "*",
+    origin: require("../middleware/cors/cors.options"),
     credentials: Boolean(true),
 }));
 
