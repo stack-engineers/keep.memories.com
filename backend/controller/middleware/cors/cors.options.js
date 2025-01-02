@@ -1,7 +1,8 @@
 "use strict";
 const cors = require("cors");
 const allowedOrigins = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "https://keep-memories.netlify.app"
 ]
 
 module.exports = {

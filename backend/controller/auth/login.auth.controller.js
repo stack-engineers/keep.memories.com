@@ -12,14 +12,12 @@ router.route("/").post(async (request, response) => {
     response.statusCode = Number(parseInt(201));
     response.setHeader("Content-Type", "Application/json");
     let { email, password } = request.body;
-    console.log(request.body)
 
     try {
         const query = await model_connection.query("SELECT * FROM admins WHERE admin_email = ?", [email]);
 
         const FoundAdmin = query[0][0]
         const { admin_username, admin_email, admin_password } = FoundAdmin;
-        console.log(FoundAdmin);
 
         const PasswordMatch = await bcrypt.compare(`${JSON.stringify(password)}`, admin_password);
 
@@ -44,9 +42,6 @@ router.route("/").post(async (request, response) => {
                     message: "All fields are required!"
                 });
         } else {
-            // on successful registration send email to confirm and congratulate
-            // user for getting an account
-            // Send a welcome email
             await SendMail(
                 admin_email, 'Logged in successfully!'
             );
@@ -55,11 +50,10 @@ router.route("/").post(async (request, response) => {
                     username: admin_username,
                     email: admin_email,
                     token: token,
-                    message: "user logged in successfully, wait a moment plz..."
+                    message: "Authenticating in progress..."
                 });
         }
     } catch (error) {
-        console.log(error);
         response.status(Number(parseInt(404)))
             .jsonp({
                 message: "No such admin with email was found!"
