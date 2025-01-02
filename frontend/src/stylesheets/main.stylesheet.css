@@ -324,8 +324,7 @@ main > section[class="photos-categories"] > a :is(img) {
     border: none;
 }
 main > section[class="photos-categories"] > a:is(:hover) {
-    border-top-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    border-radius: .4em;
 }
 main > section[class="photos-categories"] > a:is(:hover)::before {
     background-color: rgba(0, 0, 0, .0);

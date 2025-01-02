@@ -43,6 +43,7 @@ function LoginPage() {
         </div>
         <form action="" method="post">
           <span className="login-alert-message"></span>
+          <br />
           <input
             type="email"
             name="login-email"
@@ -92,19 +93,42 @@ function LoginPage() {
             type="button"
             onClick={(event) => {
               event.stopPropagation();
+              const loginAlertMessage: HTMLElement =
+                window.document.querySelector(
+                  ".login-alert-message"
+                ) as HTMLElement;
 
-              useLogin(
+              if (
                 (
                   window.document.querySelector(
                     "#login-email"
                   ) as HTMLInputElement
-                ).value,
+                ).value === ""
+              ) {
+                loginAlertMessage.textContent = "All fields are required";
+              } else if (
                 (
                   window.document.querySelector(
                     "#login-password"
                   ) as HTMLInputElement
-                ).value
-              );
+                ).value === ""
+              ) {
+                loginAlertMessage.textContent = "All fields are required";
+              } else {
+                // no worries about this, its warning buh wont cause any trouble loading the app
+                useLogin(
+                  (
+                    window.document.querySelector(
+                      "#login-email"
+                    ) as HTMLInputElement
+                  ).value,
+                  (
+                    window.document.querySelector(
+                      "#login-password"
+                    ) as HTMLInputElement
+                  ).value
+                );
+              }
             }}
           >
             Login
