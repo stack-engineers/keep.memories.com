@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import FooterComponent from "../components/Footer.Component";
 import LogoutAlertBox from "../components/Logout.Alert.Box.Component";
 import adminContext from "../context/adminContext";
-import HeaderComponent from "../components/Header.Component";
 
 function PublicPage() {
   const context: string = React.useContext(adminContext) as string;
@@ -102,11 +101,10 @@ function PublicPage() {
   return (
     <>
       <NavigationBarComponent />
-      <HeaderComponent />
       <main className={String("public-page")}>
         <br />
         <br />
-        <h1>{String("our gallery").toLocaleUpperCase()}</h1>
+        <h1>{String("all in our photo gallery").toLocaleUpperCase()}</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam non
           asperiores vel aspernatur, distinctio voluptatum soluta esse ab vero

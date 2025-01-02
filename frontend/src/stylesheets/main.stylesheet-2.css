@@ -571,4 +571,5 @@ section[class="upload-form"] > form :is(div) {
   font-size: .9em;
   font-weight: normal;
   color: hsl(0, 0%, 20%);
+  text-align: center;
 }

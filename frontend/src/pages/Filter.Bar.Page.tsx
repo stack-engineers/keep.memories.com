@@ -98,6 +98,211 @@ function FilterBar() {
             search
           </button>
         </div>
+        <div className="filter-categories">
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(response);
+            }}
+          >
+            All
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "dark";
+                })
+              );
+            }}
+          >
+            Dark
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "people";
+                })
+              );
+            }}
+          >
+            People
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "sports";
+                })
+              );
+            }}
+          >
+            Sports
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "nature";
+                })
+              );
+            }}
+          >
+            Nature
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "food";
+                })
+              );
+            }}
+          >
+            Food
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "illustrations";
+                })
+              );
+            }}
+          >
+            Illustrations
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "technology";
+                })
+              );
+            }}
+          >
+            Technology
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "http://localhost:3500/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "animals";
+                })
+              );
+            }}
+          >
+            Animals
+          </button>
+        </div>
         <h1>Beautiful photos from your searches</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque optio

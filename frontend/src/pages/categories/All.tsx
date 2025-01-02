@@ -41,7 +41,7 @@ function All() {
         <NavigationBarComponent />
         <br />
         <section className="all">
-          <h1>Beautiful photos in our gallery</h1>
+          <h1>Photos in our gallery to get you inspired</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque
             optio rem quidem fugiat voluptatum facere deleniti commodi! Debitis

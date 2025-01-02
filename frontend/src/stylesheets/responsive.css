@@ -1,5 +1,17 @@
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    header {
+      min-height: 30em;
+    }
+    header > article {
+      min-height: 27em;
+    }
+    header > article :is(h1) {
+      font-size: 2em;
+    }
+    header > article :is(p) {
+      font-size: .8em;
+    }
     section[class="about-us-page"] > article :is(div) > h1 {
         font-size: 1.7em;
       }
