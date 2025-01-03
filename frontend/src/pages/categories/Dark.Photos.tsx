@@ -37,7 +37,7 @@ function DarkPhotos() {
 
   useEffect(() => {
     FetchResources();
-  }, []);
+  }, [resources]);
 
   try {
     return resources.length > 0 ? (

@@ -35,7 +35,7 @@ function People() {
 
   useEffect(() => {
     fetchResources();
-  }, []);
+  }, [resources]);
 
   const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
     const imgElement = event.target as HTMLImageElement;

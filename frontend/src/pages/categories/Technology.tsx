@@ -37,7 +37,7 @@ function Technology() {
 
   useEffect(() => {
     FetchResources();
-  }, []);
+  }, [resources]);
 
   const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
     const imgElement = event.target as HTMLImageElement;

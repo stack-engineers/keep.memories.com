@@ -15,7 +15,6 @@ function Photo() {
       />
       <div className={String("photo-details")}>
         <section>
-          {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolores asperiores? Sed consectetur esse tempore animi facilis perspiciatis, nesciunt laboriosam.</p> */}
           <aside>
             <a href="" download={String("")}>
               <button type="button" className={String("")}>

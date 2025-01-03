@@ -18,6 +18,9 @@ interface Resource {
 
 function FilterBar() {
   const [searches, setSearches] = useState([] as Resource[]);
+  function handleClick(): void {
+    window.location.href = "/";
+  }
 
   return (
     <>
@@ -114,6 +117,10 @@ function FilterBar() {
 
               const response = await request.data;
               setSearches(response);
+            }}
+            style={{
+              color: "#fff",
+              backgroundColor: "hsl(0, 0%, 20%)",
             }}
           >
             All
@@ -301,6 +308,9 @@ function FilterBar() {
             }}
           >
             Animals
+          </button>
+          <button type="button" onClick={handleClick}>
+            categories
           </button>
         </div>
         <h1>Beautiful photos from your searches</h1>

@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import adminContext from "../context/adminContext";
 import { AiOutlineSearch } from "react-icons/ai";
 import LogoutAlertBox from "./Logout.Alert.Box.Component";
+type Admin = string;
 
 function NavigationBarComponent() {
-  const context: string = React.useContext(adminContext) as string;
+  const context: Admin = React.useContext(adminContext) as Admin;
   const admin = JSON.parse(context);
 
   return (

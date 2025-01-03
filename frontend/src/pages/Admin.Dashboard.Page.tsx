@@ -1,12 +1,12 @@
 import NavigationBarComponent from "../components/Navigation.Bar.Component";
 import FooterComponent from "../components/Footer.Component";
-import { FaTrash } from "react-icons/fa";
+// import { FaTrash } from "react-icons/fa";
 import PhotoViewComponent from "../components/Photo.View.Component";
 import LogoutAlertBox from "../components/Logout.Alert.Box.Component";
 import UploadPhotoForm from "../components/Upload.Photo.Form.Component";
 import { useEffect, useState } from "react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
-import Delete from "../functions/Delete";
+// import Delete from "../functions/Delete";
 
 interface Resource {
   id: number;
@@ -177,7 +177,7 @@ function AdminDashboardPage() {
                             <FaDownload />
                           </button>
                         </a>
-                        <button
+                        {/* <button
                           type="button"
                           className={String("")}
                           onClick={(event) => {
@@ -186,7 +186,7 @@ function AdminDashboardPage() {
                           }}
                         >
                           <FaTrash />
-                        </button>
+                        </button> */}
                       </aside>
                     </section>
                   </div>

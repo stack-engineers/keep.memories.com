@@ -462,13 +462,13 @@ section[class="contact-us-page"] > article :is(div) :is(form) {
   gap: 0.5em;
 }
 section[class="contact-us-page"] > article :is(div) :is(form) :where(input) {
-  height: 4em;
+  height: 3.5em;
   width: min(85%, 85%);
   border: 1px solid hsl(0, 0%, 80%);
   border-radius: .3em;
 }
 section[class="contact-us-page"] > article :is(div) :is(form) :where(button) {
-  height: 4em;
+  height: 3.5em;
   width: 6em;
   border: 1px solid hsl(0, 0%, 80%);
   border-radius: .3em;
@@ -548,6 +548,9 @@ section[class="filter-bar"] > p {
   background-color: transparent;
   cursor: pointer;
   flex-grow: 1;
+}
+.filter-categories > button:where(:hover) {
+  background-color: hsl(0, 0%, 95%);
 }
 section[class="filter-bar"] > article {
   min-height: 30vh;
