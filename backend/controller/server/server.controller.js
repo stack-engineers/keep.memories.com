@@ -10,13 +10,18 @@ require("dotenv").config();
 // require("dotenv").configDotenv(); // This line is not needed
 const cors = require("cors");
 const origins = [
-    "http://localhost:5173",
     "https://keep-memories.netlify.app"
 ]
 
 app.use(cors({
-    origin: require("../middleware/cors/cors.options"),
-    credentials: Boolean(true),
+    origin: function (origin, callback) {
+        if (origins.indexOf(origin) !== -1 || !origin) {
+            callback(null, Boolean(true));
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: Boolean(true)
 }));
 
 app.use(express.json());

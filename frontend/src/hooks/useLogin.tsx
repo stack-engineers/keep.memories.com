@@ -1,15 +1,18 @@
 async function useLogin(email: string, password: string) {
-  const request = await fetch("http://localhost:3500/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "Application/json",
-      Authorization: "",
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  });
+  const request = await fetch(
+    "https://keep-memories-rest-api.onrender.com/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+        Authorization: "",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    }
+  );
 
   const response = await request.json();
 

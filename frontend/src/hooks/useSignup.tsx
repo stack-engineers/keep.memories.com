@@ -1,16 +1,19 @@
 async function useSignup(username: string, email: string, password: string) {
-  const request = await fetch("http://localhost:3500/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "Application/json",
-      Authorization: "",
-    },
-    body: JSON.stringify({
-      username: username,
-      email: email,
-      password: password,
-    }),
-  });
+  const request = await fetch(
+    "https://keep-memories-rest-api.onrender.com/signup",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+        Authorization: "",
+      },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+      }),
+    }
+  );
 
   const response = await request.json();
 

@@ -9,7 +9,7 @@ async function Delete(id: string): Promise<void> {
   const current_admin = JSON.parse(context);
 
   const request = await axios.delete(
-    `http://localhost:3500/admin/uploaded/resources/${id}`,
+    `https://keep-memories-rest-api.onrender.com/admin/uploaded/resources/${id}`,
     {
       headers: {
         "Content-Type": "Application/json",
