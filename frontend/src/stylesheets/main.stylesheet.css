@@ -353,7 +353,6 @@ article[class="photo_resource"] > img {
     width: min(100%, 100%);
 }
 article[class="photo_resource"] > img:is(:hover) {
-    transform: rotate(10deg);
     scale: 1.2;
 }
 article[class="photo_resource"] > div {

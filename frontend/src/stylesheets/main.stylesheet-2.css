@@ -213,7 +213,7 @@ aside[class="photo-view"] > div[class="__photo-view-nav"] {
 }
 aside[class="photo-view"] > div[class="__photo-view-nav"] :is(span) {
   font-weight: bold;
-  font-size: 2.4em;
+  font-size: 2em;
 }
 aside[class="photo-view"] > div[class="__photo-view-nav"] :is(div) > p {
   font-weight: bold;
@@ -317,7 +317,6 @@ section[class="admin-dashboard-section-page"] :is(article) > img {
   width: min(100%, 100%);
 }
 section[class="admin-dashboard-section-page"] :is(article) > img:is(:hover) {
-  transform: rotate(10deg);
   scale: 1.2;
 }
 section[class="admin-dashboard-section-page"] :is(article) > div {

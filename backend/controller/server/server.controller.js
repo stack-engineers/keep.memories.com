@@ -54,7 +54,3 @@ ee.on("running", () => console.log("express server started"));
 server.listen(app.get("port") || process.env.PORT, () => {
     server.listening ? ee.emit("running") : console.log("server not running!");
 });
-
-// things to add to project**********
-// responsive design
-// update project section in portfolio

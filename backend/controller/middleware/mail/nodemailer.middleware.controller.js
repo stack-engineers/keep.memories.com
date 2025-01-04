@@ -44,4 +44,20 @@ async function SendMail(to, subject, message) {
     console.log(`sent email to ${to}`)
 }
 
-module.exports = { SendVerificationMail, SendMail };
+async function SendNotificationMail(to, subject, message) {
+    await transporter.sendMail({
+        to: to,
+        subject: subject,
+        text: message,
+        html: `
+            <p>You have been able to upload a number of photos in your collection, plz continue using your photos gallery collection well.</p>
+            <p>Keep memories photo gallery developer <a href="https://robertsims.netlify.app" target="_blank">robert sims</a></p>
+            <br>
+            <p>Thank you.</p>
+        `
+    });
+
+    console.log(`sent email to ${to}`)
+}
+
+module.exports = { SendVerificationMail, SendMail, SendNotificationMail };

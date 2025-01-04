@@ -15,6 +15,7 @@ interface Resource {
 
 function All() {
   const [resources, setResources] = useState<Resource[]>([]);
+  const [amount, setAmount] = useState<number>(0 as number);
 
   async function FetchResources() {
     try {
@@ -26,6 +27,7 @@ function All() {
 
       const response = await request.data;
       setResources(response);
+      setAmount(response.length as number);
     } catch (error) {
       console.warn(error);
     }
@@ -99,6 +101,10 @@ function All() {
             ))}
           </div>
           <PhotoViewComponent />
+          <br />
+          <p>{`Get inspired by our collection of ${amount} photos in our gallery.`}</p>
+          <br />
+          <br />
         </section>
       </>
     ) : (

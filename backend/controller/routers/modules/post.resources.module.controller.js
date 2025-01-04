@@ -38,6 +38,7 @@ module.exports = async function (request, response) {
                 });
         }
     } catch (error) {
+        // console.log(error)
         response.status(Number(parseInt(500)))
             .jsonp({
                 message: error.message
