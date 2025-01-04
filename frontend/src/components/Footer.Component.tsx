@@ -5,7 +5,7 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 
 function FooterComponent() {
-  const date = React.useContext(dateContext);
+  const date: string = React.useContext(dateContext) as string;
 
   return (
     <>

@@ -1,7 +1,6 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-const path = require("node:path");
 const bcrypt = require("bcrypt");
 const model_connection = require("../../model/connection/model.connection");
 const validator = require("validator");
@@ -17,8 +16,6 @@ router.route("/").post(async (request, response) => {
     const DuplicateAdminEmail = await model_connection.query(`
         SELECT admin_email AS email FROM admins WHERE admin_email = ?
     `, [email]);
-
-    console.log(DuplicateAdminEmail);
 
     try {
         if (DuplicateAdminEmail[0]?.length) {
@@ -39,7 +36,7 @@ router.route("/").post(async (request, response) => {
         } else if (!validator.isStrongPassword(password)) {
             response.status(Number(parseInt(400)))
                 .jsonp({
-                    message: "Include Upper and Lowercase characters, numbers and symbols to continue in password plz!",
+                    message: "Include Upper and Lowercase characters, numbers and symbols in password plz!",
                     instructions: "Include Upper and Lowercase characters, numbers and symbols to continue!"
                 });
         } else {
@@ -52,19 +49,16 @@ router.route("/").post(async (request, response) => {
                 INSERT INTO admins (admin_id, admin_email, admin_password, date, admin_username) VALUES (?, ?, ?, ?, ?)
             `, [admin_id, email, hash, date, username]);
 
-            // on successful registration send email to confirm and congratulate
-            // user for getting an account
-            // Send a welcome email
             await SendVerificationMail(
                 email, 'Verify your email account!',
             );
+
             response.status(Number(parseInt(201)))
                 .jsonp({
-                    message: "admin has been registered, wait a moment plz..."
+                    message: "Admin has been registered."
                 });
         }
     } catch (error) {
-        console.log(error);
         response.status(Number(parseInt(500)))
             .jsonp({
                 message: error.message

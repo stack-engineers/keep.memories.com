@@ -18,11 +18,14 @@ function People() {
 
   async function fetchResources() {
     try {
-      const request = await axios.get("http://localhost:3500/resources", {
-        headers: {
-          Authorization: "",
-        },
-      });
+      const request = await axios.get(
+        "https://keep-memories-rest-api.onrender.com/resources",
+        {
+          headers: {
+            Authorization: "",
+          },
+        }
+      );
 
       const response = request.data;
       setResources(
@@ -35,7 +38,7 @@ function People() {
 
   useEffect(() => {
     fetchResources();
-  }, []);
+  }, [resources]);
 
   const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
     const imgElement = event.target as HTMLImageElement;
@@ -99,7 +102,14 @@ function People() {
       </section>
     </>
   ) : (
-    <img src="/3363936.webp" alt="" />
+    <>
+      <NavigationBarComponent />
+      <div className="img-wrapper">
+        <img src="/3363936.webp" alt="" />
+        <p>No photos were found, try reloading the page!</p>
+        <p>No photos were found!</p>
+      </div>
+    </>
   );
 }
 

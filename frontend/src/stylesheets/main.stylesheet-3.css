@@ -359,6 +359,7 @@ section[class="about-us-page"] > article {
 section[class="about-us-page"] > article :is(img) {
   height: 22em;
   width: min(100%, 30em);
+  flex-grow: 1;
 }
 section[class="about-us-page"] > article :is(div) {
   min-height: 55vh;
@@ -409,6 +410,7 @@ section[class="contact-us-page"] > article {
 section[class="contact-us-page"] > article :is(img) {
   height: 25em;
   width: min(100%, 30em);
+  flex-grow: 1;
 }
 section[class="contact-us-page"] > article :is(div) {
   min-height: 55vh;
@@ -448,6 +450,31 @@ section[class="contact-us-page"] > article :is(div) :is(ul) > li {
   font-size: 0.9em;
   font-weight: normal;
   color: hsl(0, 0%, 20%);
+}
+section[class="contact-us-page"] > article :is(div) :is(form) {
+  min-height: 4em;
+  width: min(100%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-flow: row wrap;
+  gap: 0.5em;
+}
+section[class="contact-us-page"] > article :is(div) :is(form) :where(input) {
+  height: 3.5em;
+  width: min(85%, 85%);
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: .3em;
+}
+section[class="contact-us-page"] > article :is(div) :is(form) :where(button) {
+  height: 3.5em;
+  width: 6em;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: .3em;
+  background-color: hsl(0, 0%, 20%);
+  color: #fff;
+  cursor: pointer;
 }
 
 /*  */
@@ -501,6 +528,29 @@ section[class="filter-bar"] > p {
   color: hsl(0, 0%, 20%);
   text-align: center;
   max-width: 60em;
+}
+.filter-categories {
+  min-height: 3em;
+  width: min(90%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-flow: row wrap;
+  gap: 1em;
+}
+.filter-categories > button {
+  height: 3em;
+  width: min(100%, 10em);
+  border-radius: .3em;
+  border: 1px solid hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 20%);
+  background-color: transparent;
+  cursor: pointer;
+  flex-grow: 1;
+}
+.filter-categories > button:where(:hover) {
+  background-color: hsl(0, 0%, 95%);
 }
 section[class="filter-bar"] > article {
   min-height: 30vh;

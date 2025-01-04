@@ -18,6 +18,9 @@ interface Resource {
 
 function FilterBar() {
   const [searches, setSearches] = useState([] as Resource[]);
+  function handleClick(): void {
+    window.location.href = "/";
+  }
 
   return (
     <>
@@ -31,7 +34,7 @@ function FilterBar() {
             onInput={async (event) => {
               event.stopPropagation();
               const request = await axios.get(
-                "http://localhost:3500/resources",
+                "https://keep-memories-rest-api.onrender.com/resources",
                 {
                   headers: {
                     Authorization: "",
@@ -40,7 +43,6 @@ function FilterBar() {
               );
 
               const response = await request.data;
-              console.log(searches.length);
 
               if ((event.target as HTMLInputElement).value === "") {
                 setSearches([]);
@@ -54,13 +56,15 @@ function FilterBar() {
                 );
               }
             }}
+            placeholder="search photos here..."
+            aria-placeholder="search photos here..."
           />
           <button
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
               const request = await axios.get(
-                "http://localhost:3500/resources",
+                "https://keep-memories-rest-api.onrender.com/resources",
                 {
                   headers: {
                     Authorization: "",
@@ -96,6 +100,218 @@ function FilterBar() {
             search
           </button>
         </div>
+        <div className="filter-categories">
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(response);
+            }}
+            style={{
+              color: "#fff",
+              backgroundColor: "hsl(0, 0%, 20%)",
+            }}
+          >
+            All
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "dark";
+                })
+              );
+            }}
+          >
+            Dark
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "people";
+                })
+              );
+            }}
+          >
+            People
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "sports";
+                })
+              );
+            }}
+          >
+            Sports
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "nature";
+                })
+              );
+            }}
+          >
+            Nature
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "food";
+                })
+              );
+            }}
+          >
+            Food
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "illustrations";
+                })
+              );
+            }}
+          >
+            Illustrations
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "technology";
+                })
+              );
+            }}
+          >
+            Technology
+          </button>
+          <button
+            type="button"
+            onClick={async (event) => {
+              event.stopPropagation();
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+              setSearches(
+                response.filter((index: Resource) => {
+                  return index.category === "animals";
+                })
+              );
+            }}
+          >
+            Animals
+          </button>
+          <button type="button" onClick={handleClick}>
+            categories
+          </button>
+        </div>
         <h1>Beautiful photos from your searches</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque optio
@@ -114,12 +330,35 @@ function FilterBar() {
                 <img
                   src={result.resource_url}
                   alt={`photo from ${result.category}`}
-                  onClick={() => {
+                  onClick={(event) => {
                     (
                       window.document.querySelector(
                         ".photo-view"
                       ) as HTMLElement
                     ).style.display = "flex";
+                    (
+                      window.document.querySelector(
+                        ".img-placeholder"
+                      ) as HTMLImageElement
+                    ).src = (event.target as HTMLImageElement).src;
+                    const FoundResource: Resource = searches.find(
+                      (index: Resource) => {
+                        return (
+                          index.resource_url ===
+                          (event.target as HTMLImageElement).src
+                        );
+                      }
+                    )!;
+                    (
+                      window.document.querySelector(
+                        ".resource_admin"
+                      ) as HTMLElement
+                    ).textContent = FoundResource.resource_admin;
+                    (
+                      window.document.querySelector(
+                        ".upload_date"
+                      ) as HTMLElement
+                    ).textContent = result.upload_date as string;
                   }}
                 />
                 <div className={String("photo-details")}>

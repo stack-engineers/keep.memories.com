@@ -13,7 +13,7 @@ router.route("/").get(async (request, response) => {
         const resources = query[0];
 
         response.status(Number(parseInt(200)))
-            .jsonp(resources.length > 1 || json.length > 1 ? [...json, ...resources] : {
+            .jsonp(resources.length > 0 || json.length > 0 ? [...json, ...resources] : {
                 message: "No resources found!"
             });
 

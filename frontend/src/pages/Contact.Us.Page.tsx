@@ -56,6 +56,22 @@ function ContactPage() {
                 </li>
               ))}
             </ul>
+            <form
+              action="mailto:robertsims7076@gmail.com"
+              method="post"
+              acceptCharset="utf8"
+            >
+              <input
+                type="text"
+                name="message"
+                id="message"
+                placeholder="message here"
+                aria-placeholder="message here"
+                required
+                aria-required
+              />
+              <button type="submit">send</button>
+            </form>
           </div>
         </article>
       </section>

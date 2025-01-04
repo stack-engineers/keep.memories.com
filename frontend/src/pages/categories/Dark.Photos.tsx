@@ -18,11 +18,14 @@ function DarkPhotos() {
 
   async function FetchResources() {
     try {
-      const request = await axios.get("http://localhost:3500/resources", {
-        headers: {
-          Authorization: "",
-        },
-      });
+      const request = await axios.get(
+        "https://keep-memories-rest-api.onrender.com/resources",
+        {
+          headers: {
+            Authorization: "",
+          },
+        }
+      );
 
       const response = await request.data;
       setResources(
@@ -37,7 +40,7 @@ function DarkPhotos() {
 
   useEffect(() => {
     FetchResources();
-  }, []);
+  }, [resources]);
 
   try {
     return resources.length > 0 ? (
@@ -108,7 +111,13 @@ function DarkPhotos() {
         </section>
       </>
     ) : (
-      <img src="/3363936.webp" alt="" />
+      <>
+        <NavigationBarComponent />
+        <div className="img-wrapper">
+          <img src="/3363936.webp" alt="" />
+          <p>No photos were found, try reloading the page!</p>
+        </div>
+      </>
     );
   } catch (error) {
     console.error(error);

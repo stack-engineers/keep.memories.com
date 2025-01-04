@@ -104,7 +104,7 @@ function PublicPage() {
       <main className={String("public-page")}>
         <br />
         <br />
-        <h1>{String("our gallery").toLocaleUpperCase()}</h1>
+        <h1>{String("all in our photo gallery").toLocaleUpperCase()}</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam non
           asperiores vel aspernatur, distinctio voluptatum soluta esse ab vero

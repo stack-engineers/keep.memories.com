@@ -31,8 +31,14 @@ function App() {
       <Route index element={<PublicPage />}></Route>
       <Route path="/contact-us" element={<ContactPage />}></Route>
       <Route path="/about-us" element={<AboutPage />}></Route>
-      <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/signup" element={<SignupPage />}></Route>
+      <Route
+        path="/login"
+        element={admin ? <AdminDashboardPage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/signup"
+        element={admin ? <AdminDashboardPage /> : <SignupPage />}
+      ></Route>
       <Route
         path="/signup/account/verification/code"
         element={admin ? <AdminDashboardPage /> : <CodeValidationForm />}

@@ -103,14 +103,44 @@ function SignupPage() {
             type="button"
             onClick={(event) => {
               event.stopPropagation();
-              useSignup(
+
+              const loginAlertMessage: HTMLElement =
+                window.document.querySelector(
+                  ".signup-alert-message"
+                ) as HTMLElement;
+
+              if (
                 (window.document.querySelector("#username") as HTMLInputElement)
-                  .value,
-                (window.document.querySelector("#email") as HTMLInputElement)
-                  .value,
+                  .value === ""
+              ) {
+                loginAlertMessage.textContent = "All fields are required";
+              } else if (
                 (window.document.querySelector("#password") as HTMLInputElement)
-                  .value
-              );
+                  .value === ""
+              ) {
+                loginAlertMessage.textContent = "All fields are required";
+              } else if (
+                (window.document.querySelector("#email") as HTMLInputElement)
+                  .value === ""
+              ) {
+                loginAlertMessage.textContent = "All fields are required";
+              } else {
+                // no worries about this, its warning buh wont cause any trouble loading the app
+                useSignup(
+                  (
+                    window.document.querySelector(
+                      "#username"
+                    ) as HTMLInputElement
+                  ).value,
+                  (window.document.querySelector("#email") as HTMLInputElement)
+                    .value,
+                  (
+                    window.document.querySelector(
+                      "#password"
+                    ) as HTMLInputElement
+                  ).value
+                );
+              }
             }}
           >
             Signup

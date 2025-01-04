@@ -10,8 +10,19 @@ require("dotenv").config();
 // require("dotenv").configDotenv(); // This line is not needed
 const cors = require("cors");
 const origins = [
-    "http://localhost:3500"
+    "https://keep-memories.netlify.app"
 ]
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (origins.indexOf(origin) !== -1 || !origin) {
+            callback(null, Boolean(true));
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: Boolean(true)
+}));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -23,7 +34,7 @@ app.use(async function (request, response, next) {
     response.setHeader("Access-Control-Allow-Origin", origins[0]);
     response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PATCH, UPDATE");
 
-    response.cookie("API", "keep.memories.com api", {
+    response.cookie("API", "keep.memories.com", {
         expires: new Date(Date.now() + 2500),
         httpOnly: Boolean(true)
     });
@@ -34,10 +45,6 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.set("port", Number(parseInt(3500)));
 app.use(bodyParser.urlencoded({ extended: Boolean(false) }));
 app.use(bodyParser.json());
-app.use(cors({
-    origin: "*",
-    credentials: Boolean(true),
-}));
 
 app.use("/admin/uploaded/resources", require("../routers/admin.resource.router.controller"));
 app.use("/resources", require("../routers/resources.router.controller"));
@@ -51,4 +58,4 @@ ee.on("running", () => console.log("express server started"));
 
 server.listen(app.get("port") || process.env.PORT, () => {
     server.listening ? ee.emit("running") : console.log("server not running!");
-}); 
+});

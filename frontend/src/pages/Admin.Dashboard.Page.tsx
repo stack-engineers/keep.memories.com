@@ -1,12 +1,12 @@
 import NavigationBarComponent from "../components/Navigation.Bar.Component";
 import FooterComponent from "../components/Footer.Component";
-import { FaTrash } from "react-icons/fa";
+// import { FaTrash } from "react-icons/fa";
 import PhotoViewComponent from "../components/Photo.View.Component";
 import LogoutAlertBox from "../components/Logout.Alert.Box.Component";
 import UploadPhotoForm from "../components/Upload.Photo.Form.Component";
 import { useEffect, useState } from "react";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
-import Delete from "../functions/Delete";
+// import Delete from "../functions/Delete";
 
 interface Resource {
   id: number;
@@ -48,11 +48,14 @@ function AdminDashboardPage() {
     "Lost connection to the server, please reconnect to the internet!" as string;
 
   async function fetchResources(): Promise<void> {
-    const request = await axios.get("http://localhost:3500/resources", {
-      headers: {
-        Authorization: admin.token,
-      },
-    });
+    const request = await axios.get(
+      "https://keep-memories-rest-api.onrender.com/resources",
+      {
+        headers: {
+          Authorization: admin.token,
+        },
+      }
+    );
 
     const response: Resource[] = await request.data;
 
@@ -75,7 +78,7 @@ function AdminDashboardPage() {
 
   async function fetchAdminPostedResources(): Promise<void> {
     const request = await axios.get(
-      "http://localhost:3500/admin/uploaded/resources",
+      "https://keep-memories-rest-api.onrender.com/admin/uploaded/resources",
       {
         headers: {
           Authorization: admin.token,
@@ -114,10 +117,11 @@ function AdminDashboardPage() {
             optio rem quidem fugiat voluptatum facere deleniti commodi! Debitis
             nesciunt eveniet eius voluptatem illo illum quam.
           </p>
-          <p>
-            {resources.length &&
-              `Found ${resources.length + 1} photos in your collection`}
-          </p>
+          {resources.length > 0 ? (
+            <p>{`Found ${resources.length + 1} photos in your collection`}</p>
+          ) : (
+            ("" as string)
+          )}
           <br />
           <div className={String("collection")}>
             {adminCollection.length > 0 ? (
@@ -176,7 +180,7 @@ function AdminDashboardPage() {
                             <FaDownload />
                           </button>
                         </a>
-                        <button
+                        {/* <button
                           type="button"
                           className={String("")}
                           onClick={(event) => {
@@ -185,26 +189,22 @@ function AdminDashboardPage() {
                           }}
                         >
                           <FaTrash />
-                        </button>
+                        </button> */}
                       </aside>
                     </section>
                   </div>
                 </article>
               ))
             ) : (
-              <div className="warning-div">
-                <img src="/3363936.webp" alt="photo" />
-                {/* <p>There are no photos in your collection!</p> */}
+              <div className="img-wrapper">
+                <img src="/3363936.webp" alt="" />
+                <p>No photos were found, try reloading the page!</p>
               </div>
             )}
             <PhotoViewComponent />
             <LogoutAlertBox />
           </div>
-          <br />
-          <br />
-          <br />
           <UploadPhotoForm />
-          <br />
           <br />
           <button
             type="button"
@@ -220,8 +220,6 @@ function AdminDashboardPage() {
             {<MdOutlineAddPhotoAlternate />}
           </button>
         </section>
-        <br />
-        <br />
         <br />
         <FooterComponent />
       </>

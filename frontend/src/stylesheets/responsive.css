@@ -1,34 +1,68 @@
-/* Default styles for all devices */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 /* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    body {
-        background-color: lightblue;
+    header {
+      min-height: 30em;
     }
+    header > article {
+      min-height: 27em;
+    }
+    header > article :is(h1) {
+      font-size: 2em;
+    }
+    header > article :is(p) {
+      font-size: .8em;
+    }
+    section[class="about-us-page"] > article :is(div) > h1 {
+        font-size: 1.7em;
+      }
+      section[class="about-us-page"] > article :is(div) > p {
+        font-size: 0.8em;
+      }
+      section[class="contact-us-page"] > article :is(div) > h1 {
+        font-size: 1.7em;
+      }
+      section[class="contact-us-page"] > article :is(div) > p {
+        font-size: 0.8em;
+      }
+
+      .login-section-page {
+        gap: .0em;
+      }
+      .login-section-page > div {
+        height: 13em;
+      }
+      .login-section-page > form {
+        height: 15em;
+      }
+
+      .signup-section-page {
+        gap: .0em
+      }
+      .signup-section-page > div {
+        height: 13em;
+      }
+      .signup-section-page > form {
+        height: 17em;
+      }
 }
 
 /* Medium devices (portrait tablets and large phones, 600px to 768px) */
-@media only screen and (min-width: 601px) and (max-width: 768px) {
+/* @media only screen and (min-width: 601px) and (max-width: 768px) {
     body {
         background-color: lightgreen;
     }
-}
+} */
 
 /* Large devices (landscape tablets, 768px to 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+/* @media only screen and (min-width: 769px) and (max-width: 1024px) {
     body {
         background-color: lightcoral;
     }
-}
+} */
 
 /* Extra large devices (laptops and desktops, 1024px and up) */
-@media only screen and (min-width: 1025px) {
+/* @media only screen and (min-width: 1025px) {
     body {
         background-color: lightgoldenrodyellow;
     }
-}
+} */
