@@ -31,7 +31,10 @@ function Food() {
         })
       );
     } catch (error) {
-      console.warn(error);
+      console.log(error);
+      console.warn("Connection to server was lost...");
+      console.warn("Reconnecting to server...");
+      console.warn("Connecting...");
     }
   }
 
@@ -111,7 +114,7 @@ function Food() {
       <>
         <NavigationBarComponent />
         <div className="img-wrapper">
-          <img src="/3363936.webp" alt="" />
+          <img src="/photos/3363936.webp" alt="" />
           <p>No photos were found, try reloading the page!</p>
         </div>
       </>

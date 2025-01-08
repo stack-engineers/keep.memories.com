@@ -30,14 +30,8 @@ function AboutPage() {
               consectetur atque explicabo dolore! Possimus aut velit debitis?
               Iusto inventore nemo, est et totam distinctio.
             </p>
-            <p>
-              Ipsum dolor sit, amet consectetur adipisicing elit. Expedita
-              incidunt dolor veniam magni sequi? Maiores voluptatem animi harum
-              suscipit optio eveniet id facilis, officia quos inventore vel, et
-              architecto quam!
-            </p>
           </div>
-          <img src="/About-Us.jpeg" alt="" />
+          <img src="/photos/About-Us.jpeg" alt="" />
         </article>
       </section>
       <FooterComponent />

@@ -36,7 +36,7 @@ function ContactPage() {
       <section className={String("contact-us-page")}>
         <article>
           <img
-            src="/stock-photo-cropped-view-businesswoman-putting-handset-landline-telephone-while-sitting-workplace.jfif"
+            src="/photos/stock-photo-cropped-view-businesswoman-putting-handset-landline-telephone-while-sitting-workplace.jfif"
             alt=""
           />
           <div>

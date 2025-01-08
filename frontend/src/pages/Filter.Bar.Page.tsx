@@ -5,6 +5,7 @@ import axios from "axios";
 import { FaDownload } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import PhotoViewComponent from "../components/Photo.View.Component";
+import { AiOutlineSearch } from "react-icons/ai";
 
 interface Resource {
   id: string;
@@ -18,6 +19,8 @@ interface Resource {
 
 function FilterBar() {
   const [searches, setSearches] = useState([] as Resource[]);
+  const [inputValue, setInputValue] = useState("" as string);
+
   function handleClick(): void {
     window.location.href = "/";
   }
@@ -33,28 +36,37 @@ function FilterBar() {
             id="filter-bar-input"
             onInput={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
-
-              const response = await request.data;
-              console.log(searches.length);
-
-              if ((event.target as HTMLInputElement).value === "") {
-                setSearches([]);
-              } else {
-                setSearches(
-                  response.filter((index: Resource) => {
-                    return index.resource_title.includes(
-                      (event.target as HTMLInputElement).value
-                    );
-                  })
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
                 );
+
+                const response = await request.data;
+                setInputValue(
+                  (event.target as HTMLInputElement).value as string
+                );
+
+                if ((event.target as HTMLInputElement).value === "") {
+                  setSearches([]);
+                } else {
+                  setSearches(
+                    response.filter((index: Resource) => {
+                      return index.resource_title.includes(
+                        (event.target as HTMLInputElement).value
+                      );
+                    })
+                  );
+                }
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
               }
             }}
             placeholder="search photos here..."
@@ -64,41 +76,48 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
-
-              const response = await request.data;
-
-              if (
-                (
-                  window.document.querySelector(
-                    "#filter-bar-input"
-                  ) as HTMLInputElement
-                ).value === ""
-              ) {
-                setSearches([]);
-              } else {
-                setSearches(
-                  response.filter((index: Resource) => {
-                    return index.resource_title.includes(
-                      (
-                        window.document.querySelector(
-                          "#filter-bar-input"
-                        ) as HTMLInputElement
-                      ).value
-                    );
-                  })
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
                 );
+
+                const response = await request.data;
+
+                if (
+                  (
+                    window.document.querySelector(
+                      "#filter-bar-input"
+                    ) as HTMLInputElement
+                  ).value === ""
+                ) {
+                  setSearches([]);
+                } else {
+                  setSearches(
+                    response.filter((index: Resource) => {
+                      return index.resource_title.includes(
+                        (
+                          window.document.querySelector(
+                            "#filter-bar-input"
+                          ) as HTMLInputElement
+                        ).value
+                      );
+                    })
+                  );
+                }
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
               }
             }}
           >
-            search
+            <AiOutlineSearch /> search
           </button>
         </div>
         <div className="filter-categories">
@@ -106,17 +125,24 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(response);
+                const response = await request.data;
+                setSearches(response);
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
             style={{
               color: "#fff",
@@ -129,21 +155,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "dark";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "dark";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Dark
@@ -152,21 +185,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "people";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "people";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             People
@@ -175,21 +215,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "sports";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "sports";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Sports
@@ -198,21 +245,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "nature";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "nature";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Nature
@@ -221,21 +275,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "food";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "food";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Food
@@ -244,21 +305,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "illustrations";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "illustrations";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Illustrations
@@ -267,21 +335,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "technology";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "technology";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Technology
@@ -290,21 +365,28 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
-              const request = await axios.get(
-                "http://localhost:3500/resources",
-                {
-                  headers: {
-                    Authorization: "",
-                  },
-                }
-              );
+              try {
+                const request = await axios.get(
+                  "http://localhost:3500/resources",
+                  {
+                    headers: {
+                      Authorization: "",
+                    },
+                  }
+                );
 
-              const response = await request.data;
-              setSearches(
-                response.filter((index: Resource) => {
-                  return index.category === "animals";
-                })
-              );
+                const response = await request.data;
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.category === "animals";
+                  })
+                );
+              } catch (error) {
+                console.log(error);
+                console.warn("Connection to server was lost...");
+                console.warn("Reconnecting to server...");
+                console.warn("Connecting...");
+              }
             }}
           >
             Animals
@@ -313,7 +395,7 @@ function FilterBar() {
             categories
           </button>
         </div>
-        <h1>Beautiful photos from your searches</h1>
+        <h1>Photos from your searches: {inputValue as string}</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque optio
           rem quidem fugiat voluptatum facere deleniti commodi! Debitis nesciunt
@@ -358,13 +440,19 @@ function FilterBar() {
             ))
           ) : (
             <div className="warning-results-message">
-              <img src="/search_webp.jpg" alt="photo" className="search_webp" />
+              <img
+                src="/photos/search_webp.jpg"
+                alt="photo"
+                className="search_webp"
+              />
               {/* <p className="search-results-message">There are no search results!</p> */}
             </div>
           )}
           <PhotoViewComponent />
         </article>
       </section>
+      <br />
+      <br />
       <FooterComponent />
     </>
   );

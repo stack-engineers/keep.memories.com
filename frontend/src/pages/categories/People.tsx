@@ -29,7 +29,10 @@ function People() {
         response.filter((resource: Resource) => resource.category === "people")
       );
     } catch (error) {
-      console.warn(error);
+      console.log(error);
+      console.warn("Connection to server was lost...");
+      console.warn("Reconnecting to server...");
+      console.warn("Connecting...");
     }
   }
 
@@ -102,7 +105,7 @@ function People() {
     <>
       <NavigationBarComponent />
       <div className="img-wrapper">
-        <img src="/3363936.webp" alt="" />
+        <img src="/photos/3363936.webp" alt="" />
         <p>No photos were found, try reloading the page!</p>
         <p>No photos were found!</p>
       </div>

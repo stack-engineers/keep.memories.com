@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import FooterComponent from "../components/Footer.Component";
 import LogoutAlertBox from "../components/Logout.Alert.Box.Component";
 import adminContext from "../context/adminContext";
+import HeaderComponent from "../components/Header.Component";
+import NewsletterComponent from "../components/Newsletter.Component";
+import PublicPagePhotoCollection from "../components/Public.Photo.Collection.Component";
 
 function PublicPage() {
   const context: string = React.useContext(adminContext) as string;
@@ -16,7 +19,7 @@ function PublicPage() {
       title: "click to view all categories of photos",
       bg_photo: (
         <img
-          src="/all-text-wooden-cubes-bright-surface-black-pot-with-flower_126791-506.jpg"
+          src="/photos/all-text-wooden-cubes-bright-surface-black-pot-with-flower_126791-506.jpg"
           alt=""
         />
       ),
@@ -26,14 +29,14 @@ function PublicPage() {
     {
       id: String(uuid()),
       title: "click to view people categories of photos",
-      bg_photo: <img src="/people.jpg" alt="" />,
+      bg_photo: <img src="/photos/people.jpg" alt="" />,
       href: "/photos/categories/people",
       value: "People",
     },
     {
       id: String(uuid()),
       title: "click to view nature categories of photos",
-      bg_photo: <img src="/nature.jpg" alt="" />,
+      bg_photo: <img src="/photos/nature.jpg" alt="" />,
       href: "/photos/categories/nature",
       value: "Nature",
     },
@@ -42,7 +45,7 @@ function PublicPage() {
       title: "click to view technology categories of photos",
       bg_photo: (
         <img
-          src="/laptop-table-with-opened-code-editor-programming-style-technology-background_946657-18866.avif"
+          src="/photos/laptop-table-with-opened-code-editor-programming-style-technology-background_946657-18866.avif"
           alt=""
         />
       ),
@@ -54,7 +57,7 @@ function PublicPage() {
       title: "click to view animals categories of photos",
       bg_photo: (
         <img
-          src="/cute-massai-giraffe-tsavo-east-national-park-kenya-africa_181624-26133.jpg"
+          src="/photos/cute-massai-giraffe-tsavo-east-national-park-kenya-africa_181624-26133.jpg"
           alt=""
         />
       ),
@@ -64,14 +67,14 @@ function PublicPage() {
     {
       id: String(uuid()),
       title: "click to view food categories of photos",
-      bg_photo: <img src="/pexels-alxs-3025236.jpg" alt="" />,
+      bg_photo: <img src="/photos/pexels-alxs-3025236.jpg" alt="" />,
       href: "/photos/categories/food",
       value: "Food",
     },
     {
       id: String(uuid()),
       title: "click to view dark categories of photos",
-      bg_photo: <img src="/dark.avif" alt="" />,
+      bg_photo: <img src="/photos/dark.avif" alt="" />,
       href: "/photos/categories/dark-photos",
       value: "Sports",
     },
@@ -79,7 +82,10 @@ function PublicPage() {
       id: String(uuid()),
       title: "click to view sports categories of photos",
       bg_photo: (
-        <img src="/female-rugby-player-holding-ball_23-2148793344.jpg" alt="" />
+        <img
+          src="/photos/female-rugby-player-holding-ball_23-2148793344.jpg"
+          alt=""
+        />
       ),
       href: "/photos/categories/sports",
       value: "Sports",
@@ -87,7 +93,7 @@ function PublicPage() {
     {
       id: String(uuid()),
       title: "click to view illustrations categories of photos",
-      bg_photo: <img src="/illustrations.jpg" alt="" />,
+      bg_photo: <img src="/photos/illustrations.jpg" alt="" />,
       href: "/photos/categories/illustrations",
       value: "Sports",
     },
@@ -101,16 +107,14 @@ function PublicPage() {
   return (
     <>
       <NavigationBarComponent />
+      <HeaderComponent />
       <main className={String("public-page")}>
-        <br />
-        <br />
-        <h1>{String("all in our photo gallery").toLocaleUpperCase()}</h1>
+        <h1>Get Inspired by our photo collection.</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam non
           asperiores vel aspernatur, distinctio voluptatum soluta esse ab vero
           corrupti a eligendi eos id dolorum.
         </p>
-        <br />
         <br />
         <section className={String("photos-categories")}>
           {ref.current.map((index) => (
@@ -125,6 +129,9 @@ function PublicPage() {
           ))}
         </section>
         <LogoutAlertBox />
+        <br />
+        <br />
+        <PublicPagePhotoCollection />
         <br />
         <br />
         {admin ? (
@@ -144,6 +151,8 @@ function PublicPage() {
             Login to upload photos
           </Link>
         )}
+        <br />
+        <br />
       </main>
       <FooterComponent />
     </>

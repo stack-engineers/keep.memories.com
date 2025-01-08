@@ -1,151 +1,139 @@
 import { Link } from "react-router-dom";
-import { FaCameraRetro } from "react-icons/fa";
-import useSignup from "../hooks/useSignup";
+import Signup from "../functions/Signup";
 
 function SignupPage() {
   return (
     <>
-      <div className="secondary-navigation-bar">
-        <div>
-          <Link
-            to={{
-              pathname: "/",
-            }}
-          >
-            <h1>
-              <FaCameraRetro /> Keep Memories
-            </h1>
-          </Link>
-        </div>
-      </div>
       <section className={String("signup-section-page")}>
-        <div>
-          <h1>
-            <FaCameraRetro /> You are Welcome!
-          </h1>
-          <p>
-            You are welcome to keep memories, if you are registered, plz log
-            into your account to continue.
-          </p>
-          <br />
-          <br />
-          <span>
-            Already have an account?{" "}
-            <Link
-              to={{
-                pathname: "/login",
-              }}
-            >
-              Login
-            </Link>{" "}
-          </span>
-          <br />
-        </div>
-        <form action="" method="post">
-          <span className="signup-alert-message"></span>
-          <br />
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="username"
-            aria-placeholder="username"
-            required
-            aria-required
-          />
-          <br />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="email"
-            aria-placeholder="email"
-            required
-            aria-required
-          />
-          <br />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="password"
-            aria-placeholder="password"
-            required
-            aria-required
-          />
-          <br />
-          <article>
+        <aside className="__wrapper">
+          <form action="" method="post">
+            <h1>Signup</h1>
+            <span className="signup-alert-message"></span>
+            <br />
             <input
-              type="checkbox"
-              name="show-password"
-              id="show-password"
-              onChange={(event) => {
-                event.stopPropagation();
-                if (event.target.checked) {
-                  const password: HTMLInputElement =
-                    window.document.querySelector(
-                      "#password"
-                    ) as HTMLInputElement;
-                  password.type = "text";
-                } else {
-                  const password: HTMLInputElement =
-                    window.document.querySelector(
-                      "#password"
-                    ) as HTMLInputElement;
-                  password.type = "password";
-                }
-              }}
+              type="text"
+              name="username"
+              id="username"
+              placeholder="username"
+              aria-placeholder="username"
+              required
+              aria-required
             />
-            <label htmlFor="show-password">show password</label>
-          </article>
-          <br />
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
+            <br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email"
+              aria-placeholder="email"
+              required
+              aria-required
+            />
+            <br />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              aria-placeholder="password"
+              required
+              aria-required
+            />
+            <br />
+            <article>
+              <input
+                type="checkbox"
+                name="show-password"
+                id="show-password"
+                onChange={(event) => {
+                  event.stopPropagation();
+                  if (event.target.checked) {
+                    const password: HTMLInputElement =
+                      window.document.querySelector(
+                        "#password"
+                      ) as HTMLInputElement;
+                    password.type = "text";
+                  } else {
+                    const password: HTMLInputElement =
+                      window.document.querySelector(
+                        "#password"
+                      ) as HTMLInputElement;
+                    password.type = "password";
+                  }
+                }}
+              />
+              <label htmlFor="show-password">show password</label>
+            </article>
+            <br />
+            <div>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
 
-              const loginAlertMessage: HTMLElement =
-                window.document.querySelector(
-                  ".signup-alert-message"
-                ) as HTMLElement;
+                  const loginAlertMessage: HTMLElement =
+                    window.document.querySelector(
+                      ".signup-alert-message"
+                    ) as HTMLElement;
 
-              if (
-                (window.document.querySelector("#username") as HTMLInputElement)
-                  .value === ""
-              ) {
-                loginAlertMessage.textContent = "All fields are required";
-              } else if (
-                (window.document.querySelector("#password") as HTMLInputElement)
-                  .value === ""
-              ) {
-                loginAlertMessage.textContent = "All fields are required";
-              } else if (
-                (window.document.querySelector("#email") as HTMLInputElement)
-                  .value === ""
-              ) {
-                loginAlertMessage.textContent = "All fields are required";
-              } else {
-                // no worries about this, its warning buh wont cause any trouble loading the app
-                useSignup(
-                  (
-                    window.document.querySelector(
-                      "#username"
-                    ) as HTMLInputElement
-                  ).value,
-                  (window.document.querySelector("#email") as HTMLInputElement)
-                    .value,
-                  (
-                    window.document.querySelector(
-                      "#password"
-                    ) as HTMLInputElement
-                  ).value
-                );
-              }
-            }}
-          >
-            Signup
-          </button>
-        </form>
+                  if (
+                    (
+                      window.document.querySelector(
+                        "#username"
+                      ) as HTMLInputElement
+                    ).value === ""
+                  ) {
+                    loginAlertMessage.textContent = "All fields are required";
+                  } else if (
+                    (
+                      window.document.querySelector(
+                        "#password"
+                      ) as HTMLInputElement
+                    ).value === ""
+                  ) {
+                    loginAlertMessage.textContent = "All fields are required";
+                  } else if (
+                    (
+                      window.document.querySelector(
+                        "#email"
+                      ) as HTMLInputElement
+                    ).value === ""
+                  ) {
+                    loginAlertMessage.textContent = "All fields are required";
+                  } else {
+                    // no worries about this, its warning buh wont cause any trouble loading the app
+                    Signup(
+                      (
+                        window.document.querySelector(
+                          "#username"
+                        ) as HTMLInputElement
+                      ).value,
+                      (
+                        window.document.querySelector(
+                          "#email"
+                        ) as HTMLInputElement
+                      ).value,
+                      (
+                        window.document.querySelector(
+                          "#password"
+                        ) as HTMLInputElement
+                      ).value
+                    );
+                  }
+                }}
+              >
+                Signup
+              </button>
+              <Link
+                to={{
+                  pathname: "/login",
+                }}
+              >
+                <button type="button">Login</button>
+              </Link>
+            </div>
+          </form>
+        </aside>
       </section>
     </>
   );
