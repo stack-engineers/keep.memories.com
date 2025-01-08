@@ -5,7 +5,7 @@ function Photo() {
   return (
     <article className={String("photo")}>
       <img
-        src="/dark-skies-2023.jpg"
+        src="/photos/dark-skies-2023.jpg"
         alt=""
         onClick={() => {
           (

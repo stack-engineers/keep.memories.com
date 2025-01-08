@@ -1,7 +1,7 @@
 import { IoMdClose } from "react-icons/io";
 import React from "react";
 import adminContext from "../context/adminContext";
-import Upload from "../functions/Upload";
+// import Upload from "../functions/Upload";
 
 function UploadPhotoForm() {
   const context: string = React.useContext(adminContext) as string;
@@ -9,27 +9,15 @@ function UploadPhotoForm() {
 
   return (
     <section className={String("upload-form")}>
-      <form action="" method="post">
+      <form
+        // action="https://keep-memories-rest-api.onrender.com/admin/uploaded/resources"
+        action="http://localhost:3500/admin/uploaded/resources"
+        method="post"
+        encType="multipart/form-data"
+      >
         <h1>Insert photo url to upload!</h1>
         <br />
-        <input
-          type="text"
-          name="title"
-          id="title"
-          maxLength={30}
-          placeholder={String("title for the photo")}
-          aria-placeholder={String("title for the photo")}
-          title="enter title for the photo"
-        />
-        <br />
-        <input
-          type="text"
-          name="file"
-          id="file"
-          placeholder={String("photo address")}
-          aria-placeholder={String("photo address")}
-          title="enter photo address"
-        />
+        <input type="file" name="file" id="file" required aria-required />
         <br />
         <select name="categories" id="categories">
           <option value={String("people")}>people</option>
@@ -44,7 +32,7 @@ function UploadPhotoForm() {
         <br />
         {admin ? (
           <div className="checkbox">
-            <input type="checkbox" name="share-status" id="share-status" />
+            <input type="checkbox" name="share_status" id="share-status" />
             <label htmlFor="check">Share to public gallery!</label>
           </div>
         ) : (
@@ -53,43 +41,25 @@ function UploadPhotoForm() {
         <p className="warning"></p>
         <br />
         <button
-          type="button"
+          type="submit"
           onClick={(event) => {
             event.stopPropagation();
-            const title = (
-              window.document.querySelector("#title") as HTMLInputElement
-            ).value;
-            const url = (
+            const file = (
               window.document.querySelector("#file") as HTMLInputElement
             ).value;
             const categories = (
               window.document.querySelector("#categories") as HTMLInputElement
             ).value;
-            const shareStatus = (
-              window.document.querySelector("#share-status") as HTMLInputElement
-            ).checked;
             const warningElement = window.document.querySelector(
               ".warning"
             ) as HTMLElement;
 
-            if (title === "") {
-              (
-                window.document.querySelector(".warning") as HTMLElement
-              ).textContent = "All fields are required!";
-            } else if (url === null) {
+            if (file === null) {
               (
                 window.document.querySelector(".warning") as HTMLElement
               ).textContent = "All fields are required!";
             } else if (categories === "") {
               warningElement.textContent = "All fields are required!";
-            } else {
-              Upload(title, url, categories, admin.username, shareStatus);
-              warningElement.textContent = "photo has been uploaded!";
-              warningElement.style.color = "#fff";
-              warningElement.style.fontWeight = "bold";
-              window.setTimeout(() => {
-                window.location.reload();
-              }, 2500 as number);
             }
           }}
         >

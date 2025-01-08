@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
-import { FaCameraRetro } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import { FaCameraRetro } from "react-icons/fa";
 import { dateContext } from "../main";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
+import NewsletterComponent from "./Newsletter.Component";
 
 function FooterComponent() {
   const date: string = React.useContext(dateContext) as string;
@@ -10,14 +11,8 @@ function FooterComponent() {
   return (
     <>
       <br />
-      <br />
-      <br />
       <footer className="footer">
-        <h1>
-          <Link to="/">
-            <FaCameraRetro /> Keep Memories
-          </Link>
-        </h1>
+        <NewsletterComponent />
         <aside>
           <span>
             Developed with <FaHeart /> by{" "}

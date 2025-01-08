@@ -1,4 +1,4 @@
-import { FaCameraRetro } from "react-icons/fa";
+// import { FaCameraRetro } from "react-icons/fa";
 import React from "react";
 import { Link } from "react-router-dom";
 import adminContext from "../context/adminContext";
@@ -20,7 +20,7 @@ function NavigationBarComponent() {
                 pathname: "/",
               }}
             >
-              <FaCameraRetro /> Keep Memories
+              <img src="/photos/camera.jpg" alt="" /> Keep Memories
             </Link>
           </h1>
           <Link
