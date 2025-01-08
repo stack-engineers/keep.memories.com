@@ -344,12 +344,12 @@ section[class="about-us-page"] {
   flex-direction: column;
   flex-flow: column nowrap;
   gap: 1em;
-  /* border: 1px solid red; */
 }
 section[class="about-us-page"] > article {
   min-height: 55vh;
   width: min(90%, 90%);
   display: flex;
+  /* border: 1px solid red; */
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -357,7 +357,7 @@ section[class="about-us-page"] > article {
   gap: 3em;
 }
 section[class="about-us-page"] > article :is(img) {
-  height: 22em;
+  aspect-ratio: 16/9;
   width: min(100%, 30em);
   flex-grow: 1;
 }
@@ -408,7 +408,7 @@ section[class="contact-us-page"] > article {
   /* border: 1px solid red; */
 }
 section[class="contact-us-page"] > article :is(img) {
-  height: 25em;
+  aspect-ratio: 16/9;
   width: min(100%, 30em);
   flex-grow: 1;
 }
@@ -472,7 +472,7 @@ section[class="contact-us-page"] > article :is(div) :is(form) :where(button) {
   width: 6em;
   border: 1px solid hsl(0, 0%, 80%);
   border-radius: .3em;
-  background-color: hsl(0, 0%, 20%);
+  background-color: var(--primary-color);
   color: #fff;
   cursor: pointer;
 }
@@ -512,7 +512,7 @@ section[class="filter-bar"]
   width: 8em;
   cursor: pointer;
   color: #fff;
-  background-color: hsl(0, 0%, 20%);
+  background-color: var(--primary-color);
   border: none;
   border-radius: 0.3em;
 }

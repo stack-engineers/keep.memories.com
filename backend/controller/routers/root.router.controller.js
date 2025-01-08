@@ -12,6 +12,7 @@ router.route("/").get((request, response) => {
 
 router.use("/login", require("../auth/login.auth.controller"));
 router.use("/signup", require("../auth/signup.auth.controller"));
+router.use("/account/verification", require("../auth/code.verification.controller"));
 
 router.use(require("../middleware/error/404.middleware.controller"));
-module.exports = router;
+module.exports = router; 

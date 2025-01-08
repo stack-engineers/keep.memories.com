@@ -18,11 +18,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Work Sans", serif;
+    /* font-family: "Work Sans", serif; */
+    font-family: var(--primary-font-family);
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
     flex-direction: column;
+    gap: 0px;
 }
 
 main {
@@ -38,7 +40,12 @@ main {
 
 :root {
     --primary-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --primary-darker-font-color: hsl(0, 0%, 20%)
+    --primary-darker-font-color: hsl(0, 0%, 20%);
+    --primary-light-font-color: hsl(0, 0%, 50%);
+    --primary-color: hsl(270, 50%, 37%);
+    --primary-lighter-color: hsl(270, 50%, 96%);
+    --primary-light-color: hsl(270, 50%, 80%);
+    --primary-dark-color: hsl(270, 50%, 35%);
 }
 
 #root {
@@ -51,7 +58,22 @@ main {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    width: .4em;
+}
+::-webkit-scrollbar-thumb {
+    width: 1em;
+    background-color: var(--primary-light-font-color);
+    border-radius: 10em;
+}
+
+a:hover {
+    color: var(--primary-color)
+}
+button:active {
+    scale: .8;
+}
+input {
+    outline-style: none;
 }
 
 nav {
@@ -86,7 +108,7 @@ nav > div :is(button) {
     width: 10em;
     border-radius: 5em;
     border: none;
-    background-color: #0066ff;
+    background-color: var(--primary-color);
     color: #fff;
     cursor: pointer;
 }
@@ -122,10 +144,19 @@ nav > div :is(h1) > a {
     text-decoration-color: none;
     color: hsl(0, 0%, 30%);
     font-size: 1.1em;
-    font-family: "Playwrite DK Loopet Guides", serif;
     font-weight: bold;
     font-style: normal;
     font-variant: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+nav > div :is(h1) > a:where(:hover) {
+    color: var(--primary-color);
+}
+nav > div :is(h1) > a img {
+    height: 1.5em;
+    width: 1.5em;
 }
 nav > div :is(ul) {
     display: flex;
@@ -149,70 +180,72 @@ nav > div :is(ul) > li :where(a) {
 }
 
 header {
-    min-height: 25em;
+    min-height: 90vh;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     /* border: 1px solid red; */
-    background-image: url(/three-female-skiers-taking-selfie-mobile-phone_107420-96446.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 header > article {
-    min-height: 23em;
-    width: min(85%, 85%);
+    min-height: 27em;
+    width: min(90%, 90%);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    /* border: 1px solid red; */
-    gap: 1em;
-    border-radius: .3em;
+    flex-direction: row;
+    border: 1px solid hsl(0, 0%, 85%);
+    gap: 4em;
+    flex-flow: row wrap;
+    /* border-radius: .3em;
     background: rgba(255,255,255,0.3);
     -webkit-backdrop-filter: blur(7px);
     backdrop-filter: blur(7px);
     border: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-}
-header > article :is(h1) {
-    font-size: 2.7em;
-    font-weight: bold;
-    color: #fff;
-}
-header > article :is(p) {
-    max-width: 50em;
-    font-size: .9em;
-    font-weight: normal;
-    color: #fff;
+    text-align: center; */
+    border-radius: 1em;
 }
 header > article :is(div) {
-    height: 3.5em;
-    width: min(90%, 48em);
+    min-height: 23em;
+    width: min(100%, 32em);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    border: 1px solid hsl(0, 0%, 80%);
-    background-color: #fff;
-    border-radius: .3em;
-    gap: 1em;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    gap: .5em;
 }
-header > article :is(div) > input {
+header > article :is(div) img {
+    aspect-ratio: 16/9;
+    filter: grayscale(0%);
+    width: min(100%, 30em);
+}
+header > article :is(div) h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: hsl(0, 0%, 20%);
+    max-width: 20em;
+}
+header > article :is(div) h1 strong {
+    /* color: hsl(32, 100%, 47%); */
+    color: hsl(24, 100%, 50%);
+}
+header > article :is(div) p {
+    font-size: .9em;
+    font-weight: normal;
+    color: hsl(0, 0%, 20%);
+}
+header > article :is(div) button {
     height: 3em;
-    width: min(90%, 48em);
+    width: min(100%, 20em);
     border-radius: .3em;
-    border: none;
-}
-header > article :is(button) {
-    height: 3.5em;
-    width: 7em;
-    border: none;
-    border-radius: .2em;
+    background-color: var(--primary-color);
     color: #fff;
-    background-color: #0066ff;
+    font-weight: bold;
+    border: none;
     cursor: pointer;
 }
+
 
 article[class="categories"] {
     min-height: 4em;
@@ -273,17 +306,20 @@ main > div {
     font-weight: bold;
 }
 main > section[class="photos-categories"] {
-    min-height: 50vh;
+    min-height: 30vh;
     width: min(90%, 90%);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-flow: row wrap;
     gap: .1em;
+    background-color: var(--primary-lighter-color);
+    border-radius: .5em;
 }
+/* 
 main > section[class="photos-categories"] :is(.Food) {
-    width: 25em;
+    width: 13em;
 }
 main > section[class="photos-categories"] :is(.Nature) {
     width: 15em;
@@ -293,42 +329,76 @@ main > section[class="photos-categories"] :is(.Animals) {
 }
 main > section[class="photos-categories"] :is(.dark-photos) {
     width: 35em;
-}
+} */
 
 main > section[class="photos-categories"] > a {
-    height: 23em;
-    width: min(90%, 30em);
+    height: 8em;
+    width: min(100%, 8em);
     border: 1px solid #eee;
     overflow: hidden;
     flex-grow: 1;
     position: relative;
+    border-radius: .3em;
+    overflow: hidden;
 }
 main > section[class="photos-categories"] > a::before {
-    content: "keep.memories.com";
+    content: "keep memories";
     height: 100%;
     width: min(100%, 100%);
     position: absolute;
     top: 0px;
     left: 0px;
     margin: 0px;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .0);
     color: #fff;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     flex-direction: row;
     flex-flow: row wrap;
+    font-size: .6em;
 }
 main > section[class="photos-categories"] > a :is(img) {
     height: 100%;
     width: min(100%, 100%);
     border: none;
 }
-main > section[class="photos-categories"] > a:is(:hover) {
-    border-radius: .4em;
+main > section[class="photos-categories"] > a:is(:hover) img {
+    scale: 1.1;
+    transform: translate(10deg)
 }
 main > section[class="photos-categories"] > a:is(:hover)::before {
     background-color: rgba(0, 0, 0, .0);
+}
+main > aside[class="public-page-photo-collection"] {
+    min-height: 80vh;
+    width: min(90%, 90%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    flex-flow: row wrap;
+    gap: .1em;
+    /* border: 1px solid red; */
+}
+main > aside[class="public-page-photo-collection"] div {
+    aspect-ratio: 12/9;
+    width: min(100%, 20em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    flex-grow: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: .4em;
+}
+main > aside[class="public-page-photo-collection"] div > img {
+    height: 100%;
+    width: min(100%, 100%);
+}
+main > aside[class="public-page-photo-collection"] div:is(:hover) > img {
+   scale: 1.1
 }
 
 /*  */
@@ -459,9 +529,12 @@ section[class="logout-alert-box"] > div {
     flex-flow: column wrap;
     gap: .8em;
     background: #fff;
-    border: 2px solid #0066ff;
     border-radius: 1em;
     color: #000;
+    border-top: 5px solid var(--primary-color);
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .3);
 }
 section[class="logout-alert-box"] > div :is(h1) {
     font-weight: normal;
@@ -488,21 +561,26 @@ section[class="logout-alert-box"] > div :is(div) > button {
     width: min(90%, 8em);
     cursor: pointer;
     border-radius: .2em;
-    background-color: #0066ff;
+    background-color: var(--primary-color);
     border: none;
     color: #fff;
 }
+section[class="logout-alert-box"] > div :is(div) :last-child {
+    background-color: hsl(24, 100%, 50%);
+}
 
 footer {
-    height: 6em;
+    min-height: 20em;
     width: min(100%, 100%); 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
+    background-color: #000;
+    gap: .0em;
 }
 footer > div {
-    height: 5em;
+    min-height: 3em;
     width: min(90%, 90%); 
     display: flex;
     align-items: center;
@@ -513,15 +591,24 @@ footer > div {
 footer :is(h1) {
     font-size: 1.4em;
     font-weight: bold;
-    font-family: "Playwrite DK Loopet Guides", serif;
-    font-weight: bold;
     font-style: normal;
     font-variant: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 footer :is(h1) > a {
     text-decoration-color: none;
     text-decoration-line: none;
-    color: var(--primary-darker-font-color)
+    color: var(--primary-darker-font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .1em;
+}
+footer :is(h1) > a img {
+    height: 1.5em;
+    width: 1.5em;
 }
 footer > aside {
     height: 3em;
@@ -537,10 +624,10 @@ footer > aside {
 footer > aside :is(span) {
     font-size: .9em;
     font-weight: normal;
-    color: var(--primary-darker-font-color);
+    color: hsl(0, 0%, 70%);
 }
 footer > aside :is(span) > a {
-    color: var(--primary-darker-font-color);
+    color: hsl(0, 0%, 70%);
     text-decoration-color: none;
     text-decoration-line: underline;
 }

@@ -2,6 +2,19 @@
 const express = require("express");
 const router = express.Router();
 const model_connection = require("../../model/connection/model.connection");
+const multer = require("multer");
+const storage = multer.diskStorage({
+    destination: function (request, file, cb) {
+        cb(null, require("node:path").join(__dirname, "../../uploads"));
+    },
+    filename: function (request, file, cb) {
+        cb(null, file.originalname)
+    }
+});
+
+const upload = multer({
+    storage: storage
+});
 
 router.route("/").get(async (request, response) => {
     response.contentType = "Application/json";
@@ -20,7 +33,7 @@ router.route("/").get(async (request, response) => {
                 message: error.message
             });
     }
-}).post(require("./modules/post.admin.resources.module.controller"));
+}).post(upload.single("file"), require("./modules/post.admin.resources.module.controller"));
 
 // ***************** //
 router.route("/:id")
