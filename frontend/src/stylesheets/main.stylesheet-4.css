@@ -87,10 +87,11 @@ section[class="email-verification-status-blank-page"] {
     justify-content: center;
     background-color: var(--primary-color);
     gap: .2em;
-    flex-direction: column
+    flex-direction: column;
+    text-align: center;
 }
 section[class="email-verification-status-blank-page"] > h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: normal;
     color: #fff;
 }
@@ -112,10 +113,11 @@ section[class="newsletter-verification-status-blank-page"] {
     justify-content: center;
     background-color: var(--primary-color);
     gap: .2em;
-    flex-direction: column
+    flex-direction: column;
+    text-align: center;
 }
 section[class="newsletter-verification-status-blank-page"] > h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: normal;
     color: #fff;
 }
