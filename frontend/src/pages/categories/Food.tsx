@@ -18,11 +18,14 @@ function Food() {
 
   async function FetchResources() {
     try {
-      const request = await axios.get("http://localhost:3500/resources", {
-        headers: {
-          Authorization: "",
-        },
-      });
+      const request = await axios.get(
+        "https://keep-memories-rest-api.onrender.com/resources",
+        {
+          headers: {
+            Authorization: "",
+          },
+        }
+      );
 
       const response = await request.data;
       setResources(

@@ -15,7 +15,7 @@ async function Upload(
   const current_admin = JSON.parse(context);
 
   const request = await fetch(
-    "http://localhost:3500/admin/uploaded/resources",
+    "https://keep-memories-rest-api.onrender.com/admin/uploaded/resources",
     {
       method: "POST",
       headers: {

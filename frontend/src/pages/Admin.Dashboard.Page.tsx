@@ -48,11 +48,14 @@ function AdminDashboardPage() {
     "Lost connection to the server, please reconnect to the internet!" as string;
 
   async function fetchResources(): Promise<void> {
-    const request = await axios.get("http://localhost:3500/resources", {
-      headers: {
-        Authorization: admin.token,
-      },
-    });
+    const request = await axios.get(
+      "https://keep-memories-rest-api.onrender.com/resources",
+      {
+        headers: {
+          Authorization: admin.token,
+        },
+      }
+    );
 
     const response: Resource[] = await request.data;
 
@@ -75,7 +78,7 @@ function AdminDashboardPage() {
 
   async function fetchAdminPostedResources(): Promise<void> {
     const request = await axios.get(
-      "http://localhost:3500/admin/uploaded/resources",
+      "https://keep-memories-rest-api.onrender.com/admin/uploaded/resources",
       {
         headers: {
           Authorization: admin.token,

@@ -3,7 +3,6 @@ const express = require("express");
 const router = express();
 const format = require("date-fns").format;
 const { v5: uuid } = require("uuid");
-console.log(uuid);
 const validator = require("validator");
 const mailer = require("../middleware/mail/newsletter.mailer.middleware.controller");
 

@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 require("dotenv").configDotenv();
 const mailer = require("../middleware/mail/login.mailer.middleware.controller");
+const format = require("date-fns").format;
 
 router.route("/").post(async (request, response) => {
     response.statusCode = Number(parseInt(201));
@@ -24,7 +25,9 @@ router.route("/").post(async (request, response) => {
         const token = jwt.sign({
             username: admin_username,
             email: admin_email,
-        }, process.env.REFRESH_TOKEN_SECRETE_KEY);
+        }, process.env.REFRESH_TOKEN_SECRETE_KEY, {
+            expiresIn: "2d"
+        });
 
         if (!FoundAdmin[0]?.length === Number(parseInt(0))) {
             response.status(Number(parseInt(404)))
@@ -50,7 +53,10 @@ router.route("/").post(async (request, response) => {
                     username: admin_username,
                     email: admin_email,
                     token: token,
-                    message: "Authenticating in progress..."
+                    message: "Authenticating in progress...",
+                    status: "Logged in",
+                    signedUp: Boolean(true),
+                    date: format(new Date(), "MM/ddd/yyyy\tHH:mm:ss")
                 });
         }
     } catch (error) {
