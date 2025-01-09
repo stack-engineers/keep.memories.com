@@ -6,7 +6,7 @@ const model_connection = require("../../model/connection/model.connection");
 const validator = require("validator");
 const { v4: uuid } = require("uuid");
 const { format } = require("date-fns");
-const { SendMail, SendVerificationMail } = require("../middleware/mail/nodemailer.middleware.controller");
+const mailer = require("../middleware/mail/signup.mailer.middleware.controller");
 
 router.route("/").post(async (request, response) => {
     response.statusCode = Number(parseInt(201));
@@ -49,8 +49,8 @@ router.route("/").post(async (request, response) => {
                 INSERT INTO admins (admin_id, admin_email, admin_password, date, admin_username) VALUES (?, ?, ?, ?, ?)
             `, [admin_id, email, hash, date, username]);
 
-            await SendVerificationMail(
-                email, 'Verify your email account!',
+            await mailer(
+                email, "Account Verification Code", ""
             );
 
             response.status(Number(parseInt(201)))

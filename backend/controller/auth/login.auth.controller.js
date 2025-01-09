@@ -6,7 +6,7 @@ const model_connection = require("../../model/connection/model.connection");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 require("dotenv").configDotenv();
-const { SendMail, SendVerificationMail } = require("../middleware/mail/nodemailer.middleware.controller");
+const mailer = require("../middleware/mail/login.mailer.middleware.controller");
 
 router.route("/").post(async (request, response) => {
     response.statusCode = Number(parseInt(201));
@@ -42,8 +42,8 @@ router.route("/").post(async (request, response) => {
                     message: "All fields are required!"
                 });
         } else {
-            await SendMail(
-                admin_email, 'Logged in successfully!'
+            await mailer(
+                admin_email, "Logged into account successfully.", ""
             );
             response.status(Number(parseInt(200)))
                 .jsonp({
