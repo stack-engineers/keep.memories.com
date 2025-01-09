@@ -5,27 +5,44 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import NewsletterComponent from "./Newsletter.Component";
 
+type Date = string;
+
 function FooterComponent() {
-  const date: string = React.useContext(dateContext) as string;
+  const date: Partial<Readonly<Date>> = React.useContext(
+    dateContext
+  ) as Partial<Readonly<Date>>;
 
   return (
     <>
-      <br />
       <footer className="footer">
         <NewsletterComponent />
-        <aside>
+        <div className="__footer-information-wrapper">
+          <ul>
+            <li>
+              <a href="https://robertsims.netlify.app/" target="_blank">
+                Developer
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://keep-memories-rest-api.onrender.com/"
+                target="_blank"
+              >
+                Api
+              </a>
+            </li>
+            <li>
+              <a href="" target="_blank">
+                Sponsors
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="copyright-wrapper">
           <span>
-            Developed with <FaHeart /> by{" "}
-            <a
-              href="https://robertsims.netlify.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              robert sims
-            </a>
+            All rights reserved &copy;right keep memories {date as string}
           </span>
-          <span>All rights reserved &copy; {date}</span>
-        </aside>
+        </div>
       </footer>
     </>
   );

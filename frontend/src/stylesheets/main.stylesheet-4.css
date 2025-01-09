@@ -104,6 +104,31 @@ section[class="email-verification-status-blank-page"] > p a {
 }
 
 /*  */
+section[class="newsletter-verification-status-blank-page"] {
+    height: 100vh;
+    width: min(100%, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    gap: .2em;
+    flex-direction: column
+}
+section[class="newsletter-verification-status-blank-page"] > h1 {
+    font-size: 2em;
+    font-weight: normal;
+    color: #fff;
+}
+section[class="newsletter-verification-status-blank-page"] > p {
+    font-size: .9em;
+    font-weight: normal;
+    color: #fff;
+}
+section[class="newsletter-verification-status-blank-page"] > p a {
+    color: #fff;
+}
+
+/*  */
 aside[class="newsletter-section-component"] {
     min-height: 40vh;
     width: min(100%, 100%);
@@ -121,29 +146,30 @@ aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] {
     flex-direction: column;
     background-color: transparent;
     gap: .7em;
-    color: hsl(0, 00%, 90%);
+    color: hsl(0, 00%, 70%);
     text-align: center;
     border-radius: .4em;
 }
-aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > h1 {
-    font-size: 2em;
+aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > h2 {
+    font-size: 1.5em;
     font-weight: bold;
     text-transform: uppercase;
 }
 aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > p {
     font-size: .9em;
     font-weight: normal;
-    max-width: 30em;
-    color:hsl(0, 00%, 90%)
+    max-width: 40em;
+    color:hsl(0, 00%, 70%)
 }
 aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > input[type="email"] {
     height: 3em;
-    width: min(100%, 40em);
+    width: min(100%, 30em);
     border-radius: .2em;
     background-color: transparent;
-    border: 1px solid hsl(0, 00%, 80%);
+    border: 1px solid hsl(0, 00%, 70%);
     caret-color: auto;
     outline-style: none;
+    color: #fff;
 }
 aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > button[type="button"] {
     height: 3em;
@@ -155,4 +181,7 @@ aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > 
     color: #fff;
     cursor: pointer;
     font-weight: bolder;
+}
+.newsletter-response-message {
+    color: #ffff;
 }

@@ -11,6 +11,7 @@ import FilterBar from "./pages/Filter.Bar.Page";
 import CodeValidationForm from "./components/Email.Verification.Code.Component";
 import BlankPage from "./pages/Blank.Verification.Page";
 import Categories from "./pages/Categories.Page";
+import NewsLetterSubscriptionBlankPage from "./pages/Blank.Newsletter.Verification.Page";
 
 function App() {
   const context: string | null = React.useContext(adminContext) as
@@ -38,6 +39,10 @@ function App() {
       <Route
         path="/signup/account/verification/status"
         element={admin ? <AdminDashboardPage /> : <BlankPage />}
+      ></Route>
+      <Route
+        path="/email/newsletter/subscription/verification"
+        element={<NewsLetterSubscriptionBlankPage />}
       ></Route>
       <Route
         path="/admin/dashboard"
