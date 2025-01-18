@@ -32,8 +32,16 @@ section[class="all"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
+}
+section[class="all"] > span{
+  font-size: .9em;
+  /* border: 1px solid red; */
+}
+section[class="all"] > div[class="photos"] :nth-child(even) {
+  height: 21em;
+  width: 20em;
 }
 
 /*  */
@@ -71,7 +79,7 @@ section[class="people"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
 }
 
@@ -108,7 +116,7 @@ section[class="technology"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
 }
 
@@ -145,7 +153,7 @@ section[class="nature"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
 }
 
@@ -182,7 +190,7 @@ section[class="animals"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
 }
 
@@ -219,7 +227,7 @@ section[class="food"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
 }
 
@@ -256,7 +264,7 @@ section[class="sports"] > div[class="photos"] {
   justify-content: flex-start;
   flex-direction: row;
   flex-flow: row wrap;
-  gap: 0.1em;
+  gap: 1em;
   /* border: 1px solid red; */
 }
 
@@ -293,7 +301,7 @@ section[class="illustrations"] {
     justify-content: flex-start;
     flex-direction: row;
     flex-flow: row wrap;
-    gap: 0.1em;
+    gap: 1em;
     /* border: 1px solid red; */
   }
 
@@ -330,7 +338,7 @@ section[class="dark-photos"] {
     justify-content: flex-start;
     flex-direction: row;
     flex-flow: row wrap;
-    gap: 0.1em;
+    gap: 1em;
     /* border: 1px solid red; */
   }
 

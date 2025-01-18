@@ -20,15 +20,17 @@ function NavigationBarComponent() {
                 pathname: "/",
               }}
             >
-              <img src="/photos/camera.jpg" alt="" /> Keep Memories
+              <img src="/photos/camera.jpg" alt="" /> Free Photos Gallery
             </Link>
           </h1>
           <Link
             to={{
-              pathname: admin ? "/admin/dashboard" : "/login",
+              pathname: admin ? "/" : "/login",
             }}
           >
-            {admin ? admin.email : "Click here to login"}
+            {admin
+              ? `Logged in as ${admin.email as string}`
+              : "Click here to login"}
           </Link>
         </div>
         <div className="xtz">

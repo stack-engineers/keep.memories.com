@@ -165,7 +165,7 @@ aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > 
 }
 aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > input[type="email"] {
     height: 3em;
-    width: min(100%, 30em);
+    width: min(100%, 60em);
     border-radius: .2em;
     background-color: transparent;
     border: 1px solid hsl(0, 00%, 70%);
@@ -177,10 +177,10 @@ aside[class="newsletter-section-component"] div[class="__newsletter-wrapper"] > 
     height: 3em;
     width: min(100%, 10em);
     border-radius: .3em;
-    background-color: hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 100%);
     border: none;
     caret-color: auto;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     font-weight: bolder;
 }

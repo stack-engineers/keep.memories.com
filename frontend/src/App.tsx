@@ -1,7 +1,6 @@
 import PublicPage from "./pages/Public.Page";
 import LoginPage from "./pages/Login.Page";
 import SignupPage from "./pages/Signup.Page";
-import AdminDashboardPage from "./pages/Admin.Dashboard.Page";
 import { Route, Routes } from "react-router-dom";
 import adminContext from "./context/adminContext";
 import React from "react";
@@ -9,7 +8,8 @@ import AboutPage from "./pages/About.Us.Page";
 import ContactPage from "./pages/Contact.Us.Page";
 import FilterBar from "./pages/Filter.Bar.Page";
 import CodeValidationForm from "./components/Email.Verification.Code.Component";
-import BlankPage from "./pages/Blank.Verification.Page";
+import BlankVerificationPage from "./pages/Blank.Verification.Page";
+import BlankAuthStatusPage from "./pages/Blank.Auth.Status.Page";
 import Categories from "./pages/Categories.Page";
 import NewsLetterSubscriptionBlankPage from "./pages/Blank.Newsletter.Verification.Page";
 
@@ -26,27 +26,23 @@ function App() {
       <Route path="/about-us" element={<AboutPage />}></Route>
       <Route
         path="/login"
-        element={admin ? <AdminDashboardPage /> : <LoginPage />}
+        element={admin ? <BlankAuthStatusPage /> : <LoginPage />}
       ></Route>
       <Route
         path="/signup"
-        element={admin ? <AdminDashboardPage /> : <SignupPage />}
+        element={admin ? <BlankAuthStatusPage /> : <SignupPage />}
       ></Route>
       <Route
         path="/signup/account/verification/code"
-        element={admin ? <AdminDashboardPage /> : <CodeValidationForm />}
+        element={admin ? <PublicPage /> : <CodeValidationForm />}
       ></Route>
       <Route
         path="/signup/account/verification/status"
-        element={admin ? <AdminDashboardPage /> : <BlankPage />}
+        element={admin ? <PublicPage /> : <BlankVerificationPage />}
       ></Route>
       <Route
         path="/email/newsletter/subscription/verification"
         element={<NewsLetterSubscriptionBlankPage />}
-      ></Route>
-      <Route
-        path="/admin/dashboard"
-        element={admin ? <AdminDashboardPage /> : <LoginPage />}
       ></Route>
       <Route path="/photos/*" element={<Categories />}></Route>
       <Route path="/filter/searches" element={<FilterBar />}></Route>

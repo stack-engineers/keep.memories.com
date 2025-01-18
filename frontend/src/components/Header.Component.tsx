@@ -5,30 +5,24 @@ function HeaderComponent() {
     <>
       <header className="application-header">
         <article>
-          <div>
-            <img src="/photos/camera.jpg" alt="" />
-          </div>
-          <div>
-            <h1>
-              Upload, share & download your favorite <strong>photos</strong>
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-              inventore alias ea provident temporibus, nostrum veritatis
-              praesentium neque culpa quidem labore itaque velit illum sit,
-              sapiente perferendis atque quo hic?
-            </p>
-            <br />
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
+          <h1>Download and save your favorite photos.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam non
+            asperiores vel aspernatur, distinctio voluptatum soluta esse ab vero
+            corrupti a eligendi eos id dolorum.
+          </p>
+          <br />
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              window.setTimeout(() => {
                 window.location.href = "/filter/searches";
-              }}
-            >
-              Find In Searches <FaSearch />
-            </button>
-          </div>
+              }, 1000 as number);
+            }}
+          >
+            <FaSearch /> Find in searches
+          </button>
         </article>
       </header>
     </>

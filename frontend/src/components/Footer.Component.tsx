@@ -2,9 +2,13 @@
 // import { FaCameraRetro } from "react-icons/fa";
 import { dateContext } from "../main";
 import React from "react";
-import { FaHeart } from "react-icons/fa";
-import NewsletterComponent from "./Newsletter.Component";
-
+// import { FaHeart } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagramSquare,
+  FaLinkedin,
+  FaGooglePlus,
+} from "react-icons/fa";
 type Date = string;
 
 function FooterComponent() {
@@ -15,32 +19,34 @@ function FooterComponent() {
   return (
     <>
       <footer className="footer">
-        <NewsletterComponent />
         <div className="__footer-information-wrapper">
+          <h1>Free Photos Gallery</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+            quas deserunt saepe distinctio reprehenderit maxime facilis
+            dignissimos debitis repellat ducimus!
+          </p>
           <ul>
             <li>
-              <a href="https://robertsims.netlify.app/" target="_blank">
-                Developer
-              </a>
+              <FaFacebook />
             </li>
             <li>
-              <a
-                href="https://keep-memories-rest-api.onrender.com/"
-                target="_blank"
-              >
-                Api
-              </a>
+              <FaInstagramSquare />
             </li>
             <li>
-              <a href="" target="_blank">
-                Sponsors
-              </a>
+              <FaLinkedin />
+            </li>
+            <li>
+              <FaGooglePlus />
             </li>
           </ul>
         </div>
         <div className="copyright-wrapper">
           <span>
-            All rights reserved &copy;right keep memories {date as string}
+            &copy;right all rights reserved {date as string}{" "}
+            <a href="https://www.robertsims.netlify.app" target="_blank">
+              developer
+            </a>
           </span>
         </div>
       </footer>

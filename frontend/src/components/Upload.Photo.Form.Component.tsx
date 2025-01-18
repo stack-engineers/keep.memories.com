@@ -2,10 +2,16 @@ import { IoMdClose } from "react-icons/io";
 import React from "react";
 import adminContext from "../context/adminContext";
 // import Upload from "../functions/Upload";
+interface Admin {
+  id: string;
+  email: string;
+  username: string;
+}
 
 function UploadPhotoForm() {
   const context: string = React.useContext(adminContext) as string;
-  const admin = JSON.parse(context);
+  const admin: Admin = JSON.parse(context) as Admin;
+  console.log(admin);
 
   return (
     <section className={String("upload-form")}>
@@ -29,6 +35,17 @@ function UploadPhotoForm() {
           <option value={String("illustrations")}>illustrations</option>
           <option value={String("sports")}>sports</option>
         </select>
+        <input
+          type="text"
+          name="admin"
+          id="admin"
+          value={admin.username as string}
+          style={{
+            display: "none",
+          }}
+          required
+          aria-required
+        />
         <br />
         {admin ? (
           <div className="checkbox">

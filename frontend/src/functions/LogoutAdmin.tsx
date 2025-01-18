@@ -5,7 +5,7 @@ async function LogoutAdmin() {
 
   window.setInterval(() => {
     window.localStorage.removeItem("admin");
-  }, logoutDuration);
+  }, logoutDuration as number);
 }
 
 export default LogoutAdmin;

@@ -25,6 +25,7 @@ body {
     font-style: normal;
     flex-direction: column;
     gap: 0px;
+    background-color: hsl(0, 0%, 100%);
 }
 
 main {
@@ -42,7 +43,7 @@ main {
     --primary-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --primary-darker-font-color: hsl(0, 0%, 20%);
     --primary-light-font-color: hsl(0, 0%, 50%);
-    --primary-color: hsl(270, 50%, 37%);
+    --primary-color: #0066ff;
     --primary-lighter-color: hsl(270, 50%, 96%);
     --primary-light-color: hsl(270, 50%, 80%);
     --primary-dark-color: hsl(270, 50%, 35%);
@@ -180,63 +181,42 @@ nav > div :is(ul) > li :where(a) {
 }
 
 header {
-    min-height: 90vh;
+    min-height: 40vh;
     width: min(100%, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid red; */
 }
 header > article {
-    min-height: 27em;
+    min-height: 5em;
     width: min(90%, 90%);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    border: 1px solid hsl(0, 0%, 85%);
-    gap: 4em;
-    flex-flow: row wrap;
-    border-radius: 1em;
-}
-header > article :is(div) {
-    min-height: 23em;
-    width: min(100%, 32em);
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     flex-direction: column;
-    /* border: 1px solid red; */
-    gap: .5em;
+    gap: .0em;
+    text-align: center;
 }
-header > article :is(div) img {
-    aspect-ratio: 16/9;
-    filter: grayscale(0%);
-    width: min(100%, 30em);
-}
-header > article :is(div) h1 {
-    font-size: 2.5em;
+header > article h1 {
+    font-size: 2em;
     font-weight: bold;
     color: hsl(0, 0%, 20%);
-    max-width: 30em;
+    text-align: center;
 }
-header > article :is(div) h1 strong {
-    /* color: hsl(32, 100%, 47%); */
-    color: hsl(24, 100%, 50%);
-}
-header > article :is(div) p {
+header > article p {
     font-size: .9em;
     font-weight: normal;
     color: hsl(0, 0%, 20%);
+    text-align: center;
+    max-width: 60em;
 }
-header > article :is(div) button {
+header > article button {
     height: 3em;
     width: min(100%, 20em);
-    border-radius: .3em;
+    border: none;
+    border-radius: .5em;
     background-color: var(--primary-color);
     color: #fff;
-    font-weight: bold;
-    border: none;
     cursor: pointer;
 }
 
@@ -300,14 +280,14 @@ main > div {
     font-weight: bold;
 }
 main > section[class="photos-categories"] {
-    min-height: 30vh;
+    min-height: 15vh;
     width: min(90%, 90%);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-flow: row wrap;
-    gap: .1em;
+    gap: 2em;
     background-color: transparent;
     border-radius: .0em;
     border-bottom: 1px solid hsl(0, 0%, 90%);
@@ -328,40 +308,14 @@ main > section[class="photos-categories"] :is(.dark-photos) {
 } */
 
 main > section[class="photos-categories"] > a {
-    height: 8em;
-    width: min(100%, 8em);
-    border: 1px solid #eee;
-    overflow: hidden;
-    flex-grow: 1;
-    position: relative;
-    border-radius: .3em;
-    overflow: hidden;
-}
-main > section[class="photos-categories"] > a::before {
-    content: "keep memories";
-    height: 100%;
-    width: min(100%, 100%);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    margin: 0px;
-    background-color: rgba(0, 0, 0, .0);
-    color: #fff;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-direction: row;
-    flex-flow: row wrap;
-    font-size: .6em;
+    text-decoration: none;
+    color: hsl(0, 0%, 10%);
+    font-size: .9em;
 }
 main > section[class="photos-categories"] > a :is(img) {
-    height: 100%;
-    width: min(100%, 100%);
+    height: 3.5em;
+    width: 3.5em;
     border: none;
-}
-main > section[class="photos-categories"] > a:is(:hover) img {
-    scale: 1.1;
-    transform: translate(10deg)
 }
 main > section[class="photos-categories"] > a:is(:hover)::before {
     background-color: rgba(0, 0, 0, .0);
@@ -374,11 +328,12 @@ main > aside[class="public-page-photo-collection"] {
     justify-content: center;
     flex-direction: row;
     flex-flow: row wrap;
-    gap: .1em;
+    gap: 1em;
     /* border: 1px solid red; */
+    cursor: not-allowed
 }
 main > aside[class="public-page-photo-collection"] div {
-    aspect-ratio: 12/9;
+    aspect-ratio: 9/9;
     width: min(100%, 20em);
     display: flex;
     align-items: center;
@@ -386,10 +341,16 @@ main > aside[class="public-page-photo-collection"] div {
     /* border: 1px solid red; */
     flex-grow: 1;
     overflow: hidden;
-    cursor: pointer;
+    cursor: not-allowed;
     border-radius: .4em;
 }
+main > aside[class="public-page-photo-collection"] :nth-child(even) {
+    height: 30em;
+    width: 20em;
+    /* border: 2px solid red */
+  }
 main > aside[class="public-page-photo-collection"] div > img {
+    aspect-ratio: 12/9;
     height: 100%;
     width: min(100%, 100%);
 }
@@ -407,7 +368,7 @@ article[class="photo_resource"] {
     border: 1px solid #eee;
     flex-direction: column;
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, .1);
-    border-radius: .2em;
+    border-radius: .4em;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -415,11 +376,11 @@ article[class="photo_resource"] {
     flex-grow: 1
 }
 article[class="photo_resource"] > img {
-    height: 19em;
+    height: 100%;
     width: min(100%, 100%);
 }
 article[class="photo_resource"] > img:is(:hover) {
-    transform: rotate(10deg);
+    /* transform: rotate(10deg); */
     scale: 1.2;
 }
 article[class="photo_resource"] > div {
@@ -566,27 +527,36 @@ section[class="logout-alert-box"] > div :is(div) :last-child {
 }
 
 footer {
-    min-height: 25em;
+    min-height: 15em;
     width: min(100%, 100%); 
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: column;
-    background-color: #000;
+    background-color: hsl(0, 0%, 5%);
     gap: .0em;
 }
 footer > div[class="__footer-information-wrapper"] {
-    min-height: 3em;
+    min-height: 12em;
     width: min(100%, 100%); 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1em;
-    border-top: 1px solid hsl(0, 0%, 20%);
     /* border: 1px solid red; */
-    color: hsl(0, 0%, 70%);
+    color: hsl(0, 0%, 90%);
     /* background-color: hsl(0, 0%, 10%); */
+    text-align: center;
+}
+footer > div[class="__footer-information-wrapper"] h1 {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+footer > div[class="__footer-information-wrapper"] p {
+    font-size: .9em;
+    font-weight: normal;
+    max-width: 30em;
 }
 footer > div[class="__footer-information-wrapper"] ul {
     display: flex;
@@ -595,11 +565,13 @@ footer > div[class="__footer-information-wrapper"] ul {
     gap: 1em;
 }
 footer > div[class="__footer-information-wrapper"] ul > li {
+    font-size: 1.2em;
     list-style: none;
+    cursor: pointer;
 }
 footer > div[class="__footer-information-wrapper"] ul > li :where(a) {
     color: hsl(0, 0%, 70%);
-    font-size: .9em;
+    font-size: 1em;
     text-decoration-color: none;
     text-decoration-line: none;
 }
@@ -607,21 +579,24 @@ footer > div[class="__footer-information-wrapper"] ul > li :where(a):is(:hover) 
     color: hsl(0, 0%, 100%);
 }
 footer > div[class="copyright-wrapper"] {
-    min-height: 2em;
+    min-height: 3em;
     width: min(100%, 100%); 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 1em;
-    /* border-top: 1px solid hsl(0, 0%, 50%); */
-    /* border: 1px solid red; */
     color: hsl(0, 0%, 70%);
-    /* background-color: hsl(0, 0%, 10%); */
+    background-color: hsl(0, 0%, 0%);
 }
 footer > div[class="copyright-wrapper"] span {
-    font-size: .9em;
+    font-size: .8em;
     font-weight: normal;
+}
+footer > div[class="copyright-wrapper"] span :where(a) {
+    font-weight: normal;
+    text-decoration: none;
+    color: var(--primary-color)
 }
 footer :is(h1) {
     font-size: 1.4em;
