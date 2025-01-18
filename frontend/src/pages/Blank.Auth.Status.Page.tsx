@@ -1,23 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BlankVerificationPage: React.FC = () => {
+const BlankAuthStatusPage: React.FC = () => {
   return (
     <section className="email-verification-status-blank-page">
-      <h1>Account Verified</h1>
+      <h1>You are already signed in</h1>
       <p>
         You can now{" "}
         <Link
           to={{
-            pathname: "/login",
+            pathname: "/",
           }}
         >
           click here
         </Link>{" "}
-        log into your account to continue!
+        continue!
       </p>
     </section>
   );
 };
 
-export default BlankVerificationPage;
+export default BlankAuthStatusPage;

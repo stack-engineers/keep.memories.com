@@ -6,7 +6,6 @@ import FooterComponent from "../components/Footer.Component";
 import LogoutAlertBox from "../components/Logout.Alert.Box.Component";
 import adminContext from "../context/adminContext";
 import HeaderComponent from "../components/Header.Component";
-import NewsletterComponent from "../components/Newsletter.Component";
 import PublicPagePhotoCollection from "../components/Public.Photo.Collection.Component";
 
 function PublicPage() {
@@ -17,85 +16,65 @@ function PublicPage() {
     {
       id: String(uuid()),
       title: "click to view all categories of photos",
-      bg_photo: (
-        <img
-          src="/photos/all-text-wooden-cubes-bright-surface-black-pot-with-flower_126791-506.jpg"
-          alt=""
-        />
-      ),
+      bg_photo: <img src="/photos/select-all.png" alt="" />,
       href: "/photos/categories/all",
       value: "All",
     },
     {
       id: String(uuid()),
       title: "click to view people categories of photos",
-      bg_photo: <img src="/photos/people.jpg" alt="" />,
+      bg_photo: <img src="/photos/man.png" alt="" />,
       href: "/photos/categories/people",
       value: "People",
     },
     {
       id: String(uuid()),
       title: "click to view nature categories of photos",
-      bg_photo: <img src="/photos/nature.jpg" alt="" />,
+      bg_photo: <img src="/photos/nature.png" alt="" />,
       href: "/photos/categories/nature",
       value: "Nature",
     },
     {
       id: String(uuid()),
       title: "click to view technology categories of photos",
-      bg_photo: (
-        <img
-          src="/photos/laptop-table-with-opened-code-editor-programming-style-technology-background_946657-18866.avif"
-          alt=""
-        />
-      ),
+      bg_photo: <img src="/photos/virtual-reality.png" alt="" />,
       href: "/photos/categories/technology",
       value: "Technology",
     },
     {
       id: String(uuid()),
       title: "click to view animals categories of photos",
-      bg_photo: (
-        <img
-          src="/photos/cute-massai-giraffe-tsavo-east-national-park-kenya-africa_181624-26133.jpg"
-          alt=""
-        />
-      ),
+      bg_photo: <img src="/photos/livestock.png" alt="" />,
       href: "/photos/categories/animals",
       value: "Animals",
     },
     {
       id: String(uuid()),
       title: "click to view food categories of photos",
-      bg_photo: <img src="/photos/pexels-alxs-3025236.jpg" alt="" />,
+      bg_photo: <img src="/photos/fruit.png" alt="" />,
       href: "/photos/categories/food",
       value: "Food",
     },
     {
       id: String(uuid()),
       title: "click to view dark categories of photos",
-      bg_photo: <img src="/photos/dark.avif" alt="" />,
+      bg_photo: <img src="/photos/dark.png" alt="" />,
       href: "/photos/categories/dark-photos",
-      value: "Sports",
+      value: "Dark",
     },
     {
       id: String(uuid()),
       title: "click to view sports categories of photos",
-      bg_photo: (
-        <img
-          src="/photos/female-rugby-player-holding-ball_23-2148793344.jpg"
-          alt=""
-        />
-      ),
+      bg_photo: <img src="/photos/running.png" alt="" />,
       href: "/photos/categories/sports",
       value: "Sports",
     },
     {
       id: String(uuid()),
       title: "click to view illustrations categories of photos",
-      bg_photo: <img src="/photos/illustrations.jpg" alt="" />,
+      bg_photo: <img src="/photos/art.png" alt="" />,
       href: "/photos/categories/illustrations",
-      value: "Sports",
+      value: "Illustrations",
     },
   ]);
 
@@ -109,12 +88,6 @@ function PublicPage() {
       <NavigationBarComponent />
       <HeaderComponent />
       <main className={String("public-page")}>
-        <h1>Get Inspired by our photo collection.</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam non
-          asperiores vel aspernatur, distinctio voluptatum soluta esse ab vero
-          corrupti a eligendi eos id dolorum.
-        </p>
         <br />
         <section className={String("photos-categories")}>
           {ref.current.map((index) => (
@@ -124,7 +97,7 @@ function PublicPage() {
               title={index.title}
               className={index.value}
             >
-              {index.bg_photo}
+              {index.value}
             </Link>
           ))}
         </section>
@@ -134,23 +107,13 @@ function PublicPage() {
         <PublicPagePhotoCollection />
         <br />
         <br />
-        {admin ? (
-          <Link
-            to={{
-              pathname: "/admin/dashboard",
-            }}
-          >
-            Upload Photos
-          </Link>
-        ) : (
-          <Link
-            to={{
-              pathname: "/login",
-            }}
-          >
-            Login to upload photos
-          </Link>
-        )}
+        <Link
+          to={{
+            pathname: "/photos/categories/all",
+          }}
+        >
+          view more photos
+        </Link>
         <br />
         <br />
       </main>

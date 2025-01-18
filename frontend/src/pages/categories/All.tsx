@@ -5,7 +5,7 @@ import PhotoViewComponent from "../../components/Photo.View.Component";
 
 interface Resource {
   id: string;
-  resource_url: string;
+  resource: string;
   category: string;
   resource_admin: string;
   resource_title: string;
@@ -59,10 +59,10 @@ function All() {
               <article
                 className="photo_resource"
                 key={resource.id}
-                title={`${resource.resource_title} uploaded by ${resource.resource_admin}`}
+                title={`photo uploaded by ${resource.resource_admin} on ${resource.upload_date}`}
               >
                 <img
-                  src={resource.resource_url}
+                  src={`/uploads/${resource.resource}`}
                   alt={`photo from ${resource.category}`}
                   onClick={(event) => {
                     const photoView = document.querySelector(
@@ -86,8 +86,7 @@ function All() {
 
                     const foundResource = resources.find(
                       (res: Resource) =>
-                        res.resource_url ===
-                        (event.target as HTMLImageElement).src
+                        res.resource === (event.target as HTMLImageElement).src
                     );
 
                     if (foundResource) {
@@ -98,13 +97,17 @@ function All() {
                     }
                   }}
                 />
-                <div className="photo-details">
-                  <section></section>
-                </div>
               </article>
             ))}
           </div>
           <PhotoViewComponent />
+          <br />
+          <span>
+            Get Inspired By Our Collection Of{" "}
+            {(resources as Resource[])?.length + 1} photos
+          </span>
+          <br />
+          <br />
         </section>
       </>
     ) : (

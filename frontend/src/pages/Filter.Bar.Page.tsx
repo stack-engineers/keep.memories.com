@@ -2,14 +2,14 @@ import NavigationBarComponent from "../components/Navigation.Bar.Component";
 import FooterComponent from "../components/Footer.Component";
 import { useState } from "react";
 import axios from "axios";
-import { FaDownload } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
+// import { FaDownload } from "react-icons/fa";
+// import { FaHeart } from "react-icons/fa";
 import PhotoViewComponent from "../components/Photo.View.Component";
 import { AiOutlineSearch } from "react-icons/ai";
 
 interface Resource {
   id: string;
-  resource_url: string;
+  resource: string;
   category: string;
   resource_admin: string;
   resource_title: string;
@@ -56,7 +56,7 @@ function FilterBar() {
                 } else {
                   setSearches(
                     response.filter((index: Resource) => {
-                      return index.resource_title.includes(
+                      return index.resource.includes(
                         (event.target as HTMLInputElement).value
                       );
                     })
@@ -411,31 +411,21 @@ function FilterBar() {
                 title={`Photo uploaded by ${result.resource_admin}`}
               >
                 <img
-                  src={result.resource_url}
+                  src={`/uploads/${result.resource}`}
                   alt={`photo from ${result.category}`}
-                  onClick={() => {
+                  onClick={(event) => {
                     (
                       window.document.querySelector(
                         ".photo-view"
                       ) as HTMLElement
                     ).style.display = "flex";
+                    (
+                      window.document.querySelector(
+                        ".img-placeholder"
+                      ) as HTMLImageElement
+                    ).src = (event.target as HTMLImageElement).src;
                   }}
                 />
-                <div className={String("photo-details")}>
-                  <section>
-                    {/* <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolores asperiores? Sed consectetur esse tempore animi facilis perspiciatis, nesciunt laboriosam.</p> */}
-                    <aside>
-                      <a href="" download={String(result.resource_url)}>
-                        <button type="button" className={String("")}>
-                          <FaDownload />
-                        </button>
-                      </a>
-                      <button type="button" className={String("")}>
-                        <FaHeart />
-                      </button>
-                    </aside>
-                  </section>
-                </div>
               </article>
             ))
           ) : (

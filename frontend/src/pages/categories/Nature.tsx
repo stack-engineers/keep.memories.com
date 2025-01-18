@@ -5,7 +5,7 @@ import PhotoViewComponent from "../../components/Photo.View.Component";
 
 interface Resource {
   id: string;
-  resource_url: string;
+  resource: string;
   category: string;
   resource_admin: string;
   resource_title: string;
@@ -43,37 +43,6 @@ function Nature() {
     FetchResources();
   }, [resources]);
 
-  const handleImageClick = (event: React.MouseEvent<HTMLImageElement>) => {
-    const imgElement = event.target as HTMLImageElement;
-    const photoViewElement = document.querySelector(
-      ".photo-view"
-    ) as HTMLElement;
-    const imgPlaceholderElement = document.querySelector(
-      ".img-placeholder"
-    ) as HTMLImageElement;
-    const resourceAdminElement = document.querySelector(
-      ".resource_admin"
-    ) as HTMLElement;
-    const uploadDateElement = document.querySelector(
-      ".upload_date"
-    ) as HTMLElement;
-    const resourceCollectionUlElement = document.querySelector(
-      ".resource_collection_ul"
-    ) as HTMLAnchorElement;
-
-    photoViewElement.style.display = "flex";
-    imgPlaceholderElement.src = imgElement.src;
-
-    const foundResource = resources.find(
-      (resource) => resource.resource_url === imgElement.src
-    );
-    if (foundResource) {
-      resourceAdminElement.textContent = foundResource.resource_admin;
-      uploadDateElement.textContent = String(foundResource.upload_date);
-      resourceCollectionUlElement.href = `/photos/categories/${foundResource.category}`;
-    }
-  };
-
   return resources.length > 0 ? (
     <>
       <NavigationBarComponent />
@@ -87,16 +56,25 @@ function Nature() {
         </p>
         <br />
         <div className="photos">
-          {resources.map((resource) => (
+          {resources.map((index: Resource) => (
             <article
               className="photo_resource"
-              key={resource.id}
-              title={`${resource.resource_title} uploaded by ${resource.resource_admin}`}
+              key={index.id}
+              title={`photo uploaded by ${index.resource_admin}`}
             >
               <img
-                src={resource.resource_url}
-                alt={`photo from ${resource.category}`}
-                onClick={handleImageClick}
+                src={`/uploads/${index.resource}`}
+                alt={`photo from ${index.category}`}
+                onClick={(event) => {
+                  (
+                    window.document.querySelector(".photo-view") as HTMLElement
+                  ).style.display = "flex";
+                  (
+                    window.document.querySelector(
+                      ".img-placeholder"
+                    ) as HTMLImageElement
+                  ).src = (event.target as HTMLImageElement).src;
+                }}
               />
               <div className="photo-details">
                 <section></section>
