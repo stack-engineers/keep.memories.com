@@ -17,8 +17,14 @@ const origins = [
 ]
 
 app.use(cors({
-    origin: require("../middleware/cors/cors.options"),
-    credentials: Boolean(true),
+    origin: function (origin, callback) {
+        if (origins.indexOf(origin) !== -1 || !origin) {
+            callback(null, Boolean(true));
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: Boolean(true)
 }));
 
 app.use(express.json());
@@ -54,6 +60,7 @@ ee.on("running", () => console.log("express server started"));
 
 server.listen(app.get("port") || process.env.PORT, () => {
     server.listening ? ee.emit("running") : console.log("server not running!");
+<<<<<<< HEAD
 });
 
 // things to add to project**********
@@ -62,3 +69,6 @@ server.listen(app.get("port") || process.env.PORT, () => {
 // create new db table for resources
 // w
 // update project section in portfolio
+=======
+});
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b

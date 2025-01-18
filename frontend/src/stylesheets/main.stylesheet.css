@@ -380,7 +380,10 @@ article[class="photo_resource"] > img {
     width: min(100%, 100%);
 }
 article[class="photo_resource"] > img:is(:hover) {
+<<<<<<< HEAD
     /* transform: rotate(10deg); */
+=======
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
     scale: 1.2;
 }
 article[class="photo_resource"] > div {

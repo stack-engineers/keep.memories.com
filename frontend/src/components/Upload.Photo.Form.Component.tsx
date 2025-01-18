@@ -77,6 +77,23 @@ function UploadPhotoForm() {
               ).textContent = "All fields are required!";
             } else if (categories === "") {
               warningElement.textContent = "All fields are required!";
+<<<<<<< HEAD
+=======
+            } else {
+              Upload(
+                title,
+                url,
+                categories,
+                admin.username,
+                shareStatus,
+                admin.token
+              );
+              warningElement.style.color = "#fff";
+              warningElement.style.fontWeight = "bold";
+              window.setTimeout(() => {
+                window.location.reload();
+              }, 700 as number);
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
             }
           }}
         >

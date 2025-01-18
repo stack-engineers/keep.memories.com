@@ -1,38 +1,32 @@
-import adminContext from "../context/adminContext";
-import React from "react";
-
-type Admin = string;
-
 async function Upload(
   title: string,
   file: string,
   category: string,
   admin: string,
-  share: boolean
+  share: boolean,
+  token: string
 ): Promise<void> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const context: Admin = React.useContext(adminContext) as Admin;
-  const current_admin = JSON.parse(context);
-
   const request = await fetch(
     "https://keep-memories-rest-api.onrender.com/admin/uploaded/resources",
     {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
-        Authorization: current_admin.token ? current_admin.token : "",
+        Authorization: `Bearer ${token ? token : ""}`,
       },
       body: JSON.stringify({
         title: title,
         resource: file,
         category: category,
         admin: admin,
-        share: share === true ? true : "",
+        share: share === (true as boolean) ? (true as boolean) : ("" as string),
       }),
     }
   );
 
   const response = await request.json();
+  (window.document.querySelector(".warning") as HTMLElement).textContent =
+    response.message;
   console.log(response);
 }
 

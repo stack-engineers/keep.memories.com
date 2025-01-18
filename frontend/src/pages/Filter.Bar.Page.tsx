@@ -36,6 +36,7 @@ function FilterBar() {
             id="filter-bar-input"
             onInput={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -44,6 +45,28 @@ function FilterBar() {
                       Authorization: "",
                     },
                   }
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+
+              if ((event.target as HTMLInputElement).value === "") {
+                setSearches([]);
+              } else {
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.resource_title.includes(
+                      (event.target as HTMLInputElement).value
+                    );
+                  })
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
                 );
 
                 const response = await request.data;
@@ -76,6 +99,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -84,6 +108,38 @@ function FilterBar() {
                       Authorization: "",
                     },
                   }
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+
+              const response = await request.data;
+
+              if (
+                (
+                  window.document.querySelector(
+                    "#filter-bar-input"
+                  ) as HTMLInputElement
+                ).value === ""
+              ) {
+                setSearches([]);
+              } else {
+                setSearches(
+                  response.filter((index: Resource) => {
+                    return index.resource_title.includes(
+                      (
+                        window.document.querySelector(
+                          "#filter-bar-input"
+                        ) as HTMLInputElement
+                      ).value
+                    );
+                  })
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
                 );
 
                 const response = await request.data;
@@ -125,6 +181,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -134,6 +191,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(response);
@@ -155,6 +222,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -164,6 +232,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -185,6 +263,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -194,6 +273,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -215,6 +304,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -224,6 +314,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -245,6 +345,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -254,6 +355,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -275,6 +386,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -284,6 +396,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -305,6 +427,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -314,6 +437,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -335,6 +468,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -344,6 +478,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -365,6 +509,7 @@ function FilterBar() {
             type="button"
             onClick={async (event) => {
               event.stopPropagation();
+<<<<<<< HEAD
               try {
                 const request = await axios.get(
                   "https://keep-memories-rest-api.onrender.com/resources",
@@ -374,6 +519,16 @@ function FilterBar() {
                     },
                   }
                 );
+=======
+              const request = await axios.get(
+                "https://keep-memories-rest-api.onrender.com/resources",
+                {
+                  headers: {
+                    Authorization: "",
+                  },
+                }
+              );
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
 
                 const response = await request.data;
                 setSearches(
@@ -424,6 +579,27 @@ function FilterBar() {
                         ".img-placeholder"
                       ) as HTMLImageElement
                     ).src = (event.target as HTMLImageElement).src;
+<<<<<<< HEAD
+=======
+                    const FoundResource: Resource = searches.find(
+                      (index: Resource) => {
+                        return (
+                          index.resource_url ===
+                          (event.target as HTMLImageElement).src
+                        );
+                      }
+                    )!;
+                    (
+                      window.document.querySelector(
+                        ".resource_admin"
+                      ) as HTMLElement
+                    ).textContent = FoundResource.resource_admin;
+                    (
+                      window.document.querySelector(
+                        ".upload_date"
+                      ) as HTMLElement
+                    ).textContent = result.upload_date as string;
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
                   }}
                 />
               </article>

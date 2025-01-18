@@ -274,9 +274,34 @@ aside[class="photo-view"] {
   z-index: 5;
   gap: 1em;
 }
+<<<<<<< HEAD
 aside[class="photo-view"] > div[class="photo-view-wrapper"] {
   height: 100%;
   width: min(100%, 100%);
+=======
+aside[class="photo-view"] > div[class="__photo-view-nav"] {
+  height: 10vh;
+  width: min(90%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  gap: 1em;
+  color: hsl(0, 0%, 90%)
+}
+aside[class="photo-view"] > div[class="__photo-view-nav"] :is(span) {
+  font-weight: bold;
+  font-size: 2em;
+}
+aside[class="photo-view"] > div[class="__photo-view-nav"] :is(div) > p {
+  font-weight: bold;
+  font-size: .9em;
+}
+aside[class="photo-view"] > div[class="__photo"] {
+  min-height: 75vh;
+  width: min(90%, 90%);
+>>>>>>> afd4dc25f46bf0b3a30faa81a82dac114fb9e22b
   display: flex;
   align-items: center;
   justify-content: center;
@@ -423,7 +448,6 @@ section[class="admin-dashboard-section-page"] :is(article) > img {
   width: min(100%, 100%);
 }
 section[class="admin-dashboard-section-page"] :is(article) > img:is(:hover) {
-  transform: rotate(10deg);
   scale: 1.2;
 }
 section[class="admin-dashboard-section-page"] :is(article) > div {
