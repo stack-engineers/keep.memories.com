@@ -19,8 +19,7 @@ function PhotoViewComponent() {
   async function FetchResources() {
     try {
       const request = await axios.get(
-        // "https://keep-memories-rest-api.onrender.com/resources",
-        "http://localhost:3500/resources",
+        "https://keep-memories-com-api.onrender.com/resources",
         {
           headers: {
             Authorization: "",
@@ -71,8 +70,8 @@ function PhotoViewComponent() {
   return (
     <aside className={String("photo-view")}>
       <div className="photo-view-wrapper">
-        <div>
-          <img src="/uploads/man.jpg" alt="" className="img-placeholder" />
+        <div className="photo">
+          <img src={""} alt="" className="img-placeholder" />
         </div>
         <aside>
           <div className="wrapper">
