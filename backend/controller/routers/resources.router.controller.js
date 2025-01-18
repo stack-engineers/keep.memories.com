@@ -23,7 +23,7 @@ router.route("/").get(async (request, response) => {
                 message: error.message
             });
     }
-}).post(require("./modules/post.resources.module.controller"));
+});
 
 router.use(require("../middleware/error/404.middleware.controller"));
 module.exports = router;

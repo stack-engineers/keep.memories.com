@@ -6,11 +6,13 @@ const server = http.createServer(app);
 const path = require("node:path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const { v4: uuid } = require("uuid");
+console.log(uuid());
 require("dotenv").config();
 // require("dotenv").configDotenv(); // This line is not needed
+const cache = require("apicache");
 const cors = require("cors");
 const origins = [
-    "http://localhost:5173",
     "https://keep-memories.netlify.app"
 ]
 
@@ -41,8 +43,7 @@ app.set("port", Number(parseInt(3500)));
 app.use(bodyParser.urlencoded({ extended: Boolean(false) }));
 app.use(bodyParser.json());
 
-app.use("/admin/uploaded/resources", require("../routers/admin.resource.router.controller"));
-app.use("/resources", require("../routers/resources.router.controller"));
+app.use("/resources", cache.middleware("5 minutes"), require("../routers/resources.router.controller"));
 app.use("/", require("../routers/root.router.controller"));
 app.all("*", require("../middleware/error/404.middleware.controller"));
 // app.use(require("../middleware/error/404.middleware.controller")); // This line is duplicate
@@ -57,4 +58,7 @@ server.listen(app.get("port") || process.env.PORT, () => {
 
 // things to add to project**********
 // responsive design
+// update linkedin profile from backend dev at none to software engineer
+// create new db table for resources
+// w
 // update project section in portfolio
